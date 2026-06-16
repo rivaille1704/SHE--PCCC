@@ -36,7 +36,7 @@ body {
     height: 350px; /* Tăng chiều cao để ảnh nhìn thoáng hơn */
     
     /* Thiết lập ảnh nền từ thư mục images */
-    background-image: url('../images/PCCC.jpg'); 
+    background-image: url('images/PCCC.jpg'); 
     background-size: cover;       /* Ảnh lấp đầy vùng chọn */
     background-position: center;  /* Căn giữa ảnh */
     background-repeat: no-repeat;
