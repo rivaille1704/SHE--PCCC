@@ -19,6 +19,8 @@ body {
     font-family: 'Be Vietnam Pro', system-ui, sans-serif;
     background-color: #f7f4ee;
     color: var(--text);
+    width: 100%; 
+    overflow-x: hidden;
 }
 * { box-sizing: border-box; }
 
