@@ -120,7 +120,7 @@ body {
 
     /* Thu nhỏ nội dung chính xuống 85% */
     .main-content {
-        zoom: 0.80; /* Hoặc sử dụng transform: scale(0.85); */
+        zoom: 0.75; /* Hoặc sử dụng transform: scale(0.85); */
         width: 117%; /* Bù trừ lại kích thước khi zoom để nó tràn đầy màn hình */
         transform-origin: top left;
     }
