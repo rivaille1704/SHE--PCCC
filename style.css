@@ -1,0 +1,340 @@
+/* =========================================================
+   1. RESET & LAYOUT TỔNG THỂ
+   ========================================================= */
+:root {
+    --brand: #ff4d00;
+    --brandSoft: rgba(255, 77, 0, 0.10);
+    --border: #e5e7eb;
+    --border-light: #e5e7eb;
+    --text: #111827;
+    --text-color: #111827;
+    --muted: #6b7280;
+    --danger: #ef4444;
+    --shadow: 0 14px 34px rgba(17, 24, 39, 0.08);
+    --content-bg: #ffffff;
+}
+html { scroll-behavior: smooth; }
+body {
+    margin: 0; padding: 0;
+    font-family: 'Be Vietnam Pro', system-ui, sans-serif;
+    background-color: #f7f4ee;
+    color: var(--text);
+}
+* { box-sizing: border-box; }
+
+/* HEADER & HERO */
+.site-header { position: sticky; top: 0; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.1); z-index: 1000; }
+.header-container { max-width: 1200px; margin: 0 auto; padding: 10px 20px; display: flex; align-items: center; }
+.logo-link { display: flex; align-items: center; text-decoration: none; color: #857251; }
+.site-logo { height: 40px; margin-right: 15px; background: #eee; min-width: 40px; }
+.site-title { font-size: 18px; font-weight: 700; }
+
+.hero-section { position: relative; height: 310px; background: #333; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; }
+.hero-overlay { position: absolute; inset: 0; background: rgba(33, 33, 33, 0.5); }
+.hero-content { position: relative; z-index: 1; color: #fff; padding: 0 20px; }
+.hero-content h1 { font-size: 44px; font-weight: 600; margin: 0; line-height: 1.3; }
+
+/* =========================================================
+   2. LAYOUT DOCUMENTATION (CĂN GIỮA & MOBILE MENU)
+   ========================================================= */
+.doc-layout {
+    display: flex;
+    max-width: 1400px; /* Độ rộng vàng chuẩn mực */
+    margin: 10px auto; /* Căn giữa toàn bộ trên màn hình lớn */
+    gap: 50px; /* Đẩy Sidebar và Main Content cách nhau đúng 40px */
+    padding: 30px 20px; 
+    
+    position: relative;
+}
+
+.sidebar {
+    width: 320px; 
+    flex-shrink: 0;
+    position: sticky;
+    top: 80px; 
+    height: calc(100vh - 100px); 
+    background-color: #f8f9fa;
+    
+    /* ĐÃ SỬA: Khôi phục viền đều 4 cạnh và bo góc chuẩn */
+    border: 1px solid var(--border-light); 
+    border-radius: 4px;
+    
+    padding: 30px 20px;
+    overflow-y: auto;
+    z-index: 100;
+    transition: transform 0.3s ease; 
+    
+}
+
+/* Các nút điều khiển Mobile mặc định ẩn trên Desktop */
+.mobile-menu-btn, .close-menu-btn { display: none; }
+
+.toc-title { font-family: 'Times New Roman', serif; font-weight: bold; font-size: 20px; margin-bottom: 15px; border-bottom: 2px solid var(--brand); padding-bottom: 5px; color: var(--text-color); }
+.toc ul { list-style: none; padding: 0; margin: 0; }
+.toc ul li { margin-bottom: 8px; }
+.toc ul ul { padding-left: 15px; margin-top: 5px; border-left: 1px solid var(--border-light); margin-left: 5px; }
+.toc a { text-decoration: none; color: var(--text-color); font-size: 17px; display: block; padding: 4px 0; transition: all 0.2s ease; }
+.toc a:hover, .toc a.active { color: var(--brand); font-weight: bold; }
+
+.main-content {
+    flex: 1;
+    min-width: 0; 
+    margin: 0; 
+    padding: 30px 40px;
+    background-color: var(--content-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.section-heading { text-align: center; margin-bottom: 40px; }
+.section-heading h2 { color: #857251; font-size: 26px; font-weight: 700; margin-bottom: 10px; }
+.subtitle { font-size: 18px; font-style: italic; color: #555; }
+
+[id] { scroll-margin-top: 80px; } /* Để khi nhảy tới mục lục không bị Header che mất */
+
+/* =========================================================
+   Responsive Mobile: Kích hoạt Sidebar trượt & Nút nổi
+   ========================================================= */
+/* =========================================================
+   Responsive Mobile: Tối ưu không gian, chống ép chữ
+   ========================================================= */
+/* =========================================================
+   Responsive Mobile: Tràn 100% lề, Scale tỷ lệ ~80%
+   ========================================================= */
+@media (max-width: 900px) {
+    /* 1. Ép bố cục tràn viền 100%, xóa mọi khoảng trắng 2 bên */
+    .doc-layout { 
+        padding: 0 !important; 
+        margin: 0; 
+        flex-direction: column; 
+    }
+    
+    /* 2. Main content chiếm full màn hình, bỏ viền, bỏ bo góc */
+    .main-content { 
+        padding: 15px 10px; /* Đệm cực nhỏ chỉ 10px để chữ không dính sát mép ĐT */
+        margin: 0;
+        border: none; 
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    /* 3. "Scale 80%" các thành phần bên trong để không bị ép chữ */
+    .widget-block { padding: 15px 10px; border-radius: 8px; border-left: none; border-right: none; }
+    .subBlock { padding: 12px 10px; }
+    .card, .card-outline, .typeCard { padding: 10px; }
+    .grid2 { gap: 8px; } /* Giảm khoảng cách giữa 2 cột */
+
+    /* 4. Thu nhỏ chữ xuống một chút để khít một dòng */
+    .section-heading h2 { font-size: 22px; }
+    .topText { font-size: 18px; }
+    .subTitle { font-size: 16px; margin-bottom: 10px; }
+    .desc, .cardBody, .itemText, .basic-list { font-size: 14px; line-height: 1.5; }
+
+    /* Nút Menu nổi (Giữ nguyên) */
+    .mobile-menu-btn {
+        display: block;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: var(--brand);
+        color: #fff;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 50px;
+        font-size: 14px;
+        font-weight: bold;
+        box-shadow: 0 4px 10px rgba(255, 77, 0, 0.4);
+        z-index: 999;
+        cursor: pointer;
+    }
+
+    /* Sidebar trượt (Giữ nguyên) */
+    .sidebar {
+        position: fixed;
+        top: 0; left: 0;
+        height: 100vh;
+        width: 280px;
+        margin: 0;
+        border-radius: 0;
+        border-right: 1px solid var(--border) !important;
+        transform: translateX(-100%);
+        box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+    }
+    .sidebar.active { transform: translateX(0); }
+    .close-menu-btn {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: none; border: none;
+        font-size: 28px; color: var(--text-color);
+        cursor: pointer; line-height: 1;
+    }
+}
+
+/* =========================================================
+   3. UI DÙNG CHUNG (CÁC KHỐI THÔNG TIN BÊN TRONG)
+   ========================================================= */
+.widget-block { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 20px; width: 100%; box-shadow: var(--shadow); }
+.topHead { display: flex; align-items: center; gap: 10px; margin-bottom: 15px; }
+.topIco { width: 32px; height: 32px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; background: var(--brandSoft); border: 1px solid rgba(255, 77, 0, .22); color: var(--brand); font-size: 18px; }
+.topText { font-weight: 900; color: var(--brand); font-size: 19px; }
+
+.subBlock { border: 1px solid var(--border); border-radius: 16px; padding: 16px; background: #fff; margin-bottom: 16px; }
+.inner-section { margin-top: 20px; padding-top: 15px; border-top: 1px dashed var(--border); }
+.subTitle { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-weight: 900; color: var(--brand); font-size: 18px; }
+.subTitle .subIco { width: 30px; height: 30px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; background: var(--brandSoft); border: 1px solid rgba(255, 77, 0, .22); }
+
+.desc { color: var(--text); font-weight: 500; font-size: 14.5px; line-height: 1.6; margin-bottom: 12px; }
+.highlight-desc { padding: 10px 12px; border-radius: 12px; border: 1px solid rgba(255,77,0,.18); background: var(--brandSoft); }
+.sub-italic { font-style: italic; color: var(--muted); margin-top: -8px; margin-bottom: 14px; font-size: 14px; }
+.note { margin-top: 12px; padding: 12px; border-radius: 12px; border: 1px dashed rgba(255, 77, 0, .35); background: #fff; color: var(--text); font-size: 13.5px; font-weight: 500; line-height: 1.5; }
+.inline-link { color: var(--brand); font-weight: bold; text-decoration: underline; }
+
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.card { border: 1px solid var(--border); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
+.cardTitle { padding: 12px; font-weight: 900; color: var(--brand); background: var(--brandSoft); border-bottom: 1px solid rgba(255, 77, 0, .18); display: flex; align-items: center; gap: 10px; font-size: 14px; }
+.cardBody { padding: 12px; font-weight: 500; font-size: 14px; line-height: 1.6; flex: 1; }
+.card-outline { border: 1px solid var(--border); border-radius: 16px; padding: 14px; }
+.card-outline-head { font-weight: 900; color: var(--brand); display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 15px; }
+
+.badge { width: 26px; height: 26px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(255, 77, 0, .28); background: #fff; color: var(--brand); font-weight: 900; }
+.pill { padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 900; color: var(--brand); background: var(--brandSoft); border: 1px solid rgba(255, 77, 0, .25); margin: 0 4px; }
+
+.row-item { display: flex; gap: 10px; margin-top: 10px; }
+.dot { width: 8px; height: 8px; border-radius: 999px; flex: 0 0 auto; margin-top: 6px; }
+.dot.red { background: var(--danger); } 
+.dot.amber { background: #f59e0b; }
+
+.flag { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.flagText { font-weight: 900; letter-spacing: .4px; text-transform: uppercase; font-size: 13.5px; }
+
+.list-ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.list-item { display: flex; gap: 10px; align-items: center; padding: 12px; border: 1px solid var(--border); border-radius: 14px; }
+.basic-list { padding-left: 20px; font-size: 14px; font-weight: 500; line-height: 1.6; }
+.basic-list li { margin-bottom: 6px; }
+
+/* =========================================================
+   4. GIAO DIỆN KHAI BÁO & MỨC PHẠT
+   ========================================================= */
+.addBlock { margin-top: 16px; border: 1px solid rgba(255, 77, 0, .18); border-radius: 16px; overflow: hidden; }
+.addHead { display: flex; align-items: center; gap: 12px; padding: 14px; background: var(--brandSoft); border-bottom: 1px solid rgba(255, 77, 0, .18); }
+.addTitle { font-weight: 900; color: var(--brand); font-size: 18px; line-height: 1.3; flex: 1; }
+.addBody { padding: 14px; }
+.addCard { border: 1px solid var(--border); border-radius: 14px; padding: 14px; margin-bottom: 12px; }
+.addCard.soft { background: rgba(255, 77, 0, .04); border-color: rgba(255, 77, 0, .18); }
+.addCard.warn { border-color: rgba(255, 77, 0, .22); box-shadow: var(--shadow); margin-bottom: 0; }
+.addCardTitle { font-weight: 900; margin-bottom: 10px; font-size: 15px; }
+
+.fine-grid { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+.fine-item { border: 1px solid var(--border); border-radius: 14px; padding: 12px; border-left: 5px solid; }
+.fine-item.lv1 { border-left-color: #94a3b8; }
+.fine-item.lv2 { border-left-color: var(--brand); background: #fff9f6; }
+.fine-money { font-weight: 900; color: var(--brand); font-size: 14.5px; margin-bottom: 8px; }
+.fine-note { margin-top: 12px; font-size: 12px; color: var(--muted); font-style: italic; }
+
+.banner-box { display: flex; gap: 12px; align-items: stretch; margin-top: 10px; }
+.banner-left { flex: 1; border: 1px solid var(--border); border-radius: 16px; padding: 14px; font-size: 13.5px; line-height: 1.6; }
+.banner-right { border: 1px solid rgba(255,77,0,.25); background: var(--brandSoft); border-radius: 16px; padding: 16px; min-width: 160px; display: flex; flex-direction: column; justify-content: center; }
+.pill-banner { font-size: 11px; font-weight: 900; color: var(--brand); background: #fff; border: 1px solid rgba(255,77,0,.25); padding: 4px 10px; border-radius: 999px; text-transform: uppercase; align-self: flex-start; }
+.money-banner { margin-top: 8px; font-size: 18px; font-weight: 900; }
+.mini-banner { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+/* =========================================================
+   5. TIMELINE HỒ SƠ & BẢNG PCCC
+   ========================================================= */
+.timeline { position: relative; padding-left: 40px; margin-top: 15px; }
+.timeline::before { content: ""; position: absolute; left: 15px; top: 6px; bottom: 6px; width: 2px; background: rgba(255, 77, 0, .28); }
+.tl-item { position: relative; margin-bottom: 12px; display: flex; align-items: flex-start; }
+.tl-no { position: absolute; left: -40px; width: 32px; height: 32px; border-radius: 10px; background: var(--brand); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+.tl-card { width: 100%; border: 1px solid var(--border); border-radius: 14px; padding: 10px 14px; font-size: 14.5px; line-height: 1.6; }
+
+.table-wrap { border: 1px solid var(--border); border-radius: 14px; overflow-x: auto; margin-top: 15px; }
+.data-table { width: 100%; min-width: 700px; border-collapse: collapse; font-size: 13.5px; line-height: 1.5; }
+.data-table th, .data-table td { padding: 10px; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); }
+.data-table th { background: rgba(255, 77, 0, .08); font-weight: 900; }
+.data-table th:last-child, .data-table td:last-child { border-right: none; }
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table .center { text-align: center; }
+.th-sub { display: block; font-size: 12px; font-weight: 600; color: var(--muted); margin-top: 4px; }
+
+/* =========================================================
+   6. CÔNG CỤ TÍNH (TOOL)
+   ========================================================= */
+.toolCard { border: 2px solid rgba(255, 77, 0, .55); border-radius: 16px; margin-top: 15px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+.toolHead { background: #fff; padding: 14px; border-bottom: 1px solid rgba(255, 77, 0, .18); display: flex; align-items: flex-start; gap: 10px; border-top: 8px solid var(--brand); border-top-left-radius: 14px; border-top-right-radius: 14px; }
+.toolIco { width: 40px; height: 40px; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: rgba(255, 77, 0, .10); border: 1px solid rgba(255, 77, 0, .28); color: var(--brand); font-size: 18px; }
+.toolHeadText { flex: 1; }
+.toolTitle { font-weight: 900; font-size: 18px; color: var(--brand); }
+.toolSub { font-size: 12.5px; color: var(--muted); font-weight: 600; margin-top: 4px; }
+.toolTag { font-size: 11px; font-weight: bold; color: var(--brand); background: rgba(255, 77, 0, .10); border: 1px solid rgba(255, 77, 0, .35); padding: 4px 10px; border-radius: 999px; }
+
+.toolBody { padding: 16px; }
+.toolLabel { display: block; font-weight: bold; font-size: 13.5px; margin-bottom: 8px; }
+.toolRow { display: flex; gap: 8px; }
+.toolArea { width: 240px; max-width: 100%; padding: 10px 12px; border-radius: 12px; border: 1.5px solid rgba(255, 77, 0, .22); font-size: 14.5px; outline: none; }
+.toolArea:focus { border-color: var(--brand); box-shadow: 0 0 0 3px rgba(255, 77, 0, .15); }
+.toolCalc { padding: 10px 16px; border-radius: 12px; font-weight: bold; background: var(--brand); color: #fff; border: none; cursor: pointer; }
+.toolReset { padding: 10px 16px; border-radius: 12px; font-weight: bold; background: #fff; color: var(--brand); border: 1.5px solid rgba(255, 77, 0, .35); cursor: pointer; }
+.toolResult { margin-top: 15px; padding: 12px; border-radius: 12px; background: rgba(255, 77, 0, .06); border: 1.5px solid rgba(255, 77, 0, .22); font-weight: 500; font-size: 14.5px; }
+.toolCases { margin-top: 15px; display: flex; flex-direction: column; gap: 10px; }
+.toolHint { margin-top: 15px; font-size: 12.5px; color: var(--muted); font-style: italic; }
+
+/* =========================================================
+   7. BỘ ĐIỀU KHIỂN HÌNH ẢNH (CUSTOM VIEWER)
+   ========================================================= */
+.typeCard { border: 1px solid var(--border); border-radius: 16px; padding: 16px; margin-top: 15px; }
+.typeHead { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.typeName { font-weight: 900; font-size: 18px; }
+.typeItem { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; }
+.typeCap { padding: 10px 12px; border-top: 1px solid var(--border); font-weight: 800; font-size: 13.5px; text-align: center; }
+.typeText { margin-top: 15px; font-size: 14.5px; font-weight: 500; }
+
+.custom-viewer { position: relative; width: 100%; height: 260px; background: #e9ecef; overflow: hidden; }
+.custom-viewer .img-container { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; color: #999; font-weight: bold; flex-direction: column; text-align: center; }
+.custom-viewer img { max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.2s ease-in-out; transform: scale(1); background: transparent; }
+.custom-viewer img[src=""] { display: none; } 
+.custom-viewer img[src=""] + span { display: block; }
+.custom-viewer span { display: none; font-size: 14px; padding: 20px;}
+
+.viewer-controls { position: absolute; top: 10px; right: 10px; display: flex; gap: 6px; z-index: 10; opacity: 0; transition: opacity 0.2s ease; }
+.custom-viewer:hover .viewer-controls { opacity: 1; }
+.viewer-controls button { background: rgba(0, 0, 0, 0.6); color: white; border: none; border-radius: 6px; width: 32px; height: 32px; cursor: pointer; font-weight: bold; font-size: 18px; }
+.viewer-controls button:hover { background: var(--brand); }
+
+/* =========================================================
+   8. CUBES 3D BACKGROUND (Tích hợp hiệu ứng GSAP)
+   ========================================================= */
+.content-wrapper { position: relative; z-index: 1; }
+#cubes-bg {
+    --col-gap: 1%;
+    --row-gap: 1%;
+    --cube-perspective: 9999999px;
+    --cube-face-border: 1.5px dashed rgba(255, 77, 0, 0.4); 
+    --cube-face-bg: rgba(255, 77, 0, 0.03); 
+    
+    position: fixed;
+    top: 0; left: 0;
+    width: max(100vw, 100vh);
+    height: max(100vw, 100vh);
+    z-index: 0; 
+    display: grid;
+    column-gap: var(--col-gap);
+    row-gap: var(--row-gap);
+    perspective: var(--cube-perspective);
+    pointer-events: none; 
+}
+.cube { position: relative; width: 100%; height: 100%; aspect-ratio: 1 / 1; transform-style: preserve-3d; }
+.cube-face { position: absolute; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: var(--cube-face-bg); border: var(--cube-face-border); }
+.cube-face--top { transform: translateY(-50%) rotateX(90deg); }
+.cube-face--bottom { transform: translateY(50%) rotateX(-90deg); }
+.cube-face--left { transform: translateX(-50%) rotateY(-90deg); }
+.cube-face--right { transform: translateX(50%) rotateY(90deg); }
+.cube-face--back, .cube-face--front { transform: rotateY(-90deg) translateX(50%) rotateY(90deg); }
+
+/* RESPONSIVE CHO CÁC KHỐI NỘI DUNG */
+@media (max-width: 768px) {
+    .banner-box { flex-direction: column; }
+    .toolRow { flex-direction: column; align-items: stretch; }
+    .toolArea { width: 100%; }
+}

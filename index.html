@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHE- PCCC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="cubes-bg"></div>
+    
+    <header class="site-header">
+        <div class="header-container">
+            <a href="#" class="logo-link">
+                <img src="images/logo.jpg" alt="Logo" class="site-logo">
+                <span class="site-title">SHE- PCCC</span>
+            </a>
+        </div>
+    </header>
+
+    <section class="hero-section" style="background-image: url('');">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>TUÂN THỦ CÁC QUY ĐỊNH<br>PHÒNG CHÁY CHỮA CHÁY</h1>
+        </div>
+    </section>
+
+    <div class="content-wrapper">
+        
+        <div class="doc-layout">
+            
+            <button id="mobile-menu-btn" class="mobile-menu-btn">☰ Mục lục</button>
+
+            <aside class="sidebar" id="sidebar">
+                <button id="close-menu-btn" class="close-menu-btn">×</button>
+                
+                <nav class="toc">
+                    <div class="toc-title">MỤC LỤC</div>
+                    <ul>
+                        <li><a href="#thong-tin-chung">1. Thông tin chung</a>
+                            <ul>
+                                <li><a href="#phan-loai">1.1. Phân loại cơ sở</a></li>
+                                <li><a href="#trach-nhiem">1.2. Trách nhiệm pháp lý</a></li>
+                                <li><a href="#ho-so-thiet-bi">1.3. Hồ sơ, thiết bị, khai báo</a></li>
+                                <li><a href="#kiem-tra-nha-nuoc">1.4. Kiểm tra & Mức phạt</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#chi-tiet-buu-cuc">2. Chi tiết cho Bưu cục</a>
+                            <ul>
+                                <li><a href="#ho-so-pccc">2.1. Hồ sơ PCCC</a></li>
+                                <li><a href="#binh-chua-chay">2.2. Bình chữa cháy</a></li>
+                                <li><a href="#quy-dinh-ccdc">2.3. Quy định trang bị CCDC</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main class="main-content">
+                <div class="section-heading">
+                    <h2>CÁC HẠNG MỤC TUÂN THỦ VỀ PHÒNG CHÁY CHỮA CHÁY TẠI BƯU CỤC</h2>
+                    <p class="subtitle">Chi tiết các hạng mục phòng cháy chữa cháy cần tuân thủ tại bưu cục</p>
+                </div>
+
+                <div id="thong-tin-chung" class="widget-block">
+                    <div class="topHead">
+                        <span class="topIco">ℹ️</span>
+                        <div class="topText">Thông tin chung</div>
+                    </div>
+
+                    <div id="phan-loai" class="subBlock">
+                        <div class="subTitle"><span class="subIco">🔥</span> Phân loại lại các cơ sở cần quản lý PCCC</div>
+                        <div class="desc">Cách phân loại cơ sở thuộc diện quản lý về PCCC và cơ sở có nguy cơ cháy nổ đã thay đổi. Bưu cục có thể rơi vào một trong hai diện sau:</div>
+                        <div class="grid2">
+                            <div class="card">
+                                <div class="cardTitle"><span class="badge">A</span> 🏢 Cơ sở thuộc diện quản lý về PCCC</div>
+                                <div class="cardBody">Bưu cục cao từ <b>2 tầng</b> trở lên <span class="pill">HOẶC</span> có tổng diện tích sàn từ <b>100 m²</b> trở lên</div>
+                            </div>
+                            <div class="card">
+                                <div class="cardTitle"><span class="badge">B</span> 🔥 Cơ sở có nguy cơ cháy, nổ</div>
+                                <div class="cardBody">
+                                    <div class="row-item"><span class="dot red"></span><div><b>Nhóm 1:</b> Bưu cục trên <b>7 tầng</b> hoặc tổng diện tích sàn từ <b>3.000 m²</b> trở lên</div></div>
+                                    <div class="row-item"><span class="dot amber"></span><div><b>Nhóm 2:</b> Bưu cục từ <b>3 – 7 tầng</b> hoặc có tổng diện tích sàn từ <b>500 m²</b> đến dưới <b>3.000 m²</b></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="note">✅ Quy tắc: Chỉ cần thỏa <b>01</b> điều kiện (<b>tầng</b> hoặc <b>diện tích</b>) là vào nhóm tương ứng.</div>
+                    </div>
+
+                    <div id="trach-nhiem" class="subBlock">
+                        <div class="subTitle"><span class="subIco">⚖️</span> Trách nhiệm của người đứng đầu cơ sở</div>
+                        <div class="sub-italic">(Dành cho Người đại diện pháp luật hoặc Quản lý trực tiếp PCCC)</div>
+                        <div class="flag"><span class="flagIco">🚩</span><span class="flagText">CẢNH BÁO RỦI RO PHÁP LÝ</span></div>
+                        <div class="desc" style="margin-bottom:10px">Trong trường hợp xảy ra sự cố cháy nổ gây hậu quả nghiêm trọng, người đứng đầu có thể đối mặt với:</div>
+                        <ul class="list-ul">
+                            <li class="list-item"><span class="bullet">⚠️</span><div class="itemText"><b>Truy cứu trách nhiệm hình sự cá nhân:</b> Nếu để xảy ra thiệt hại về tính mạng con người.</div></li>
+                            <li class="list-item"><span class="bullet">📄</span><div class="itemText"><b>Trách nhiệm dân sự:</b> Đền bù thiệt hại về tài sản và sức khỏe nghiêm trọng.</div></li>
+                        </ul>
+                    </div>
+
+                    <div id="ho-so-thiet-bi" class="subBlock">
+                        <div class="subTitle"><span class="subIco">📂</span> Hồ sơ, thiết bị, khai báo PCCC</div>
+                        <div class="grid2">
+                            <div class="card-outline">
+                                <div class="card-outline-head"><span class="subIco">📁</span> Hồ sơ</div>
+                                <ul class="basic-list">
+                                    <li>Hồ sơ PCCC áp dụng theo biểu mẫu mới;</li>
+                                    <li>Thực hiện việc lưu trữ hồ sơ PCCC (bản giấy hoặc điện tử);</li>
+                                </ul>
+                            </div>
+                            <div class="card-outline">
+                                <div class="card-outline-head"><span class="subIco">🧯</span> Thiết bị</div>
+                                <ul class="basic-list">
+                                    <li>Các yêu cầu về số lượng trang thiết bị PCCC tại cơ sở;</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="addBlock">
+                            <div class="addHead">
+                                <span class="subIco" style="background:#fff">🛰️</span>
+                                <div class="addTitle">Khai báo dữ liệu PCCC & CNCH và kết nối thiết bị truyền tin báo cháy</div>
+                            </div>
+                            <div class="addBody">
+                                <div class="addCard soft">
+                                    <div class="addCardTitle">Yêu cầu & lộ trình thực hiện</div>
+                                    <div class="desc">Thực hiện khai báo, cập nhật dữ liệu về PCCC và CNCH; kết nối thiết bị truyền tin báo cháy với hệ thống cơ sở dữ liệu PCCC & CNCH theo khoản 1b điều 25 của Nghị định 105/2025 <b>chậm nhất đến ngày 01/07/2027</b>.</div>
+                                </div>
+                                <div class="addCard warn">
+                                    <div class="addCardTitle">🛰️ Vi phạm quy định về hệ thống CSDL PCCC, CNCH và truyền tin báo cháy (Điều 28 – NĐ 106/2025/NĐ-CP)</div>
+                                    <div class="fine-grid">
+                                        <div class="fine-item lv1">
+                                            <div class="fine-money">Cảnh cáo hoặc Phạt tiền từ 500.000đ – 1.000.000đ</div>
+                                            <ul class="basic-list">
+                                                <li>Khai báo không đầy đủ thông tin của cơ sở vào hệ thống...</li>
+                                                <li>Khai báo không đầy đủ thông tin của phương tiện PCCC...</li>
+                                            </ul>
+                                        </div>
+                                        <div class="fine-item lv1">
+                                            <div class="fine-money">Phạt tiền từ 1.000.000đ – 3.000.000đ</div>
+                                            <ul class="basic-list">
+                                                <li>Không cập nhật thông tin khi cơ sở có thay đổi...</li>
+                                                <li>Không chi trả chi phí duy trì hoạt động của thiết bị...</li>
+                                            </ul>
+                                        </div>
+                                        <div class="fine-item lv1">
+                                            <div class="fine-money">Phạt tiền từ 3.000.000đ – 5.000.000đ</div>
+                                            <ul class="basic-list"><li>Không khai báo thông tin của phương tiện PCCC, CNCH...</li></ul>
+                                        </div>
+                                        <div class="fine-item lv2">
+                                            <div class="fine-money">Phạt tiền từ 5.000.000đ – 10.000.000đ</div>
+                                            <ul class="basic-list"><li>Không khai báo thông tin của cơ sở vào hệ thống...</li></ul>
+                                        </div>
+                                        <div class="fine-item lv2">
+                                            <div class="fine-money">Phạt tiền từ 10.000.000đ – 15.000.000đ</div>
+                                            <ul class="basic-list"><li>Cố ý ngắt kết nối hoặc không khắc phục các hư hỏng...</li></ul>
+                                        </div>
+                                        <div class="fine-item lv2">
+                                            <div class="fine-money">Phạt tiền từ 20.000.000đ – 30.000.000đ</div>
+                                            <ul class="basic-list">
+                                                <li>Không trang bị, lắp đặt thiết bị truyền tin báo cháy;</li>
+                                                <li>Không kết nối thiết bị truyền tin báo cháy...</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="fine-note">*Các mức phạt áp dụng cho cá nhân. Tổ chức vi phạm phạt gấp 02 lần.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="kiem-tra-nha-nuoc" class="subBlock">
+                        <div class="subTitle" style="margin-top:20px"><span class="subIco">🛡️</span> Tăng cường kiểm tra Nhà nước & tăng mức phạt</div>
+                        <div class="banner-box">
+                            <div class="banner-left">
+                                <b>Cơ quan có thẩm quyền kiểm tra:</b> Công an các cấp theo phân quyền, UBND cấp xã/tỉnh, cơ quan chuyên môn về xây dựng.<br>
+                                Kiểm tra định kỳ (1–3 năm/lần) hoặc đột xuất. Một số vi phạm phổ biến: không huấn luyện, không báo cáo định kỳ...
+                            </div>
+                            <div class="banner-right">
+                                <div class="pill-banner">Mức phạt</div>
+                                <div class="money-banner">600k – 100tr</div>
+                                <div class="mini-banner">Tùy hành vi vi phạm</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="chi-tiet-buu-cuc" class="widget-block" style="margin-top: 20px;">
+                    <div class="topHead">
+                        <div class="topText" style="border-left: 6px solid var(--brand); padding-left: 10px; font-size: 20px;">🏬 Nội dung chi tiết cho Bưu cục</div>
+                    </div>
+                    <div class="desc highlight-desc">Dưới đây là các hạng mục bưu cục cần có để đảm bảo công tác an toàn PCCC.</div>
+
+                    <div id="ho-so-pccc" class="subBlock">
+                        <div class="subTitle"><span class="subIco">📁</span> Hồ sơ về phòng cháy, chữa cháy, cứu nạn, cứu hộ</div>
+                        <div class="timeline">
+                            <div class="tl-item"><div class="tl-no">1</div><div class="tl-card"><b>Tải form mẫu:</b> Bưu cục tải file mẫu tại đây: <a href="https://docs.google.com/spreadsheets/d/1iCsPECHiyPhwfc1eXWczxQeULQcbE9MlU59XJo5ylF8" class="inline-link" target="_blank">Form mẫu hồ sơ PCCC</a></div></div>
+                            <div class="tl-item"><div class="tl-no">2</div><div class="tl-card"><b>Điền thông tin theo form mẫu:</b> Điền đầy đủ các trường thông tin theo hướng dẫn trong form mẫu.</div></div>
+                            <div class="tl-item"><div class="tl-no">3</div><div class="tl-card"><b>Tìm SHE phụ trách khu vực:</b> Tra cứu trong sheet "2. Thông tin liên hệ" để tìm SHE phụ trách.</div></div>
+                            <div class="tl-item"><div class="tl-no">4</div><div class="tl-card"><b>Gửi email cho SHE để xử lý hồ sơ:</b> Gửi email kèm file đã điền cho SHE phụ trách.</div></div>
+                        </div>
+                        <div class="note">✅ Lưu ý: Vui lòng đặt tiêu đề email rõ ràng (VD: <b>[PCCC] Hồ sơ Bưu cục - Tên BC</b>) để SHE dễ tiếp nhận và xử lý.</div>
+                    </div>
+
+                    <div id="binh-chua-chay" class="subBlock">
+                        <div class="subTitle"><span class="subIco">🧯</span> Bình chữa cháy</div>
+                        
+                        <div class="inner-section">
+                            <div class="subTitle">📋 Quy định về số lượng Bình chữa cháy</div>
+                            <ul class="basic-list"><li>Quản lý BC gửi mail đến Phòng Mua hàng để đề nghị mua số lượng và loại bình chữa cháy theo thông tin bên dưới.</li></ul>
+                            <div class="toolCard" data-tool="v2">
+                                <div class="toolHead">
+                                    <span class="toolIco">🧮</span>
+                                    <div class="toolHeadText">
+                                        <div class="toolTitle">Công cụ tính số lượng bình chữa cháy</div>
+                                        <div class="toolSub">Công cụ để tính số bình tối thiểu cần có theo diện tích sử dụng</div>
+                                    </div>
+                                    <span class="toolTag">THEO DIỆN TÍCH</span>
+                                </div>
+                                <div class="toolBody">
+                                    <label class="toolLabel">Nhập diện tích bưu cục / kho (m²)</label>
+                                    <div class="toolRow">
+                                        <input class="toolArea" type="number" min="0" step="1" placeholder="VD: 120" />
+                                        <button class="toolCalc" type="button">Tính</button>
+                                        <button class="toolReset" type="button">Reset</button>
+                                    </div>
+                                    <div class="toolResult" style="display:none;"></div>
+                                    
+                                    <div class="toolCases">
+                                        <div class="card-outline">
+                                            <div class="card-outline-head"><span class="badge">1</span> Trường hợp 1</div>
+                                            <div class="desc">Bưu cục và Kho có diện tích sàn <b>dưới 2000 m²</b> không thuộc diện phải làm thẩm duyệt thiết kế. Định mức trung bình <b>100 m²/ 1 bình bột MFZ8</b> và có bổ sung tối thiểu <b>10% bình dự trữ</b> loại khí <b>CO2 MT5</b>.</div>
+                                            <div class="note"><b>Lưu ý:</b> Định mức nêu trên là tiêu chí an toàn nội bộ của Công ty.</div>
+                                        </div>
+                                        <div class="card-outline">
+                                            <div class="card-outline-head"><span class="badge">2</span> Trường hợp 2</div>
+                                            <div class="desc">Kho lớn diện tích sàn từ <b>2000 m²</b> trở lên thuộc diện thẩm duyệt thiết kế... số lượng, chủng loại và vị trí bố trí bình chữa cháy được thực hiện theo <b>bản vẽ thiết kế PCCC</b> đã được cơ quan có thẩm quyền phê duyệt.</div>
+                                        </div>
+                                    </div>
+                                    <div class="toolHint">*Kết quả hiển thị là gợi ý theo quy đổi nội bộ. Với kho ≥ 2000 m², ưu tiên theo bản vẽ thiết kế PCCC đã phê duyệt.</div>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <div class="inner-section">
+                            <div class="subTitle">🏷️ Các loại Bình chữa cháy thông thường</div>
+                            <div class="typeCard">
+                                <div class="typeHead"><span class="badge">A</span> <div class="typeName">Bình bột chữa cháy</div></div>
+                                <div class="grid2">
+                                    <div class="typeItem custom-viewer" data-img-src="images/ABC_4kg.jpg">
+                                        <div class="viewer-controls"><button class="btn-zoom-in">+</button><button class="btn-zoom-out">-</button><button class="btn-pop-out">↗</button></div>
+                                        <div class="img-container"><img src="images/ABC_4kg.jpg" alt="Bình bột 4kg"></div>
+                                        <div class="typeCap">Bình bột ABC loại 4 kg (MFZ4)</div>
+                                    </div>
+                                    <div class="typeItem custom-viewer" data-img-src="images/ABC_8kg.jpg">
+                                        <div class="viewer-controls"><button class="btn-zoom-in">+</button><button class="btn-zoom-out">-</button><button class="btn-pop-out">↗</button></div>
+                                        <div class="img-container"><img src="images/ABC_8kg.jpg" alt="Bình bột 8kg"></div>
+                                        <div class="typeCap">Bình bột ABC loại 8 kg (MFZ8)</div>
+                                    </div>
+                                </div>
+                                <div class="typeText">
+                                    <div><b>Công dụng:</b> Bình bột chữa cháy được sử dụng để dập tắt các đám cháy mới phát sinh đối với chất rắn thông thường...</div>
+                                    <div class="typeWarn"><b>Lưu ý:</b> Không nên sử dụng Bình bột để chữa cháy những đám cháy thiết bị điện tử tinh vi.</div>
+                                </div>
+                            </div>
+                            <div class="typeCard">
+                                <div class="typeHead"><span class="badge">B</span> <div class="typeName">Bình khí chữa cháy (CO₂)</div></div>
+                                <div class="grid2">
+                                    <div class="typeItem custom-viewer" data-img-src="images/Co2_3kg.webp">
+                                        <div class="viewer-controls"><button class="btn-zoom-in">+</button><button class="btn-zoom-out">-</button><button class="btn-pop-out">↗</button></div>
+                                        <div class="img-container"><img src="images/Co2_3kg.webp" alt="Bình CO2 3kg"></div>
+                                        <div class="typeCap">Bình khí CO2 loại 3 kg (MT3)</div>
+                                    </div>
+                                    <div class="typeItem custom-viewer" data-img-src="images/CO2_5kg.webp">
+                                        <div class="viewer-controls"><button class="btn-zoom-in">+</button><button class="btn-zoom-out">-</button><button class="btn-pop-out">↗</button></div>
+                                        <div class="img-container"><img src="images/CO2_5kg.webp" alt="Bình CO2 5kg"></div>
+                                        <div class="typeCap">Bình khí CO2 loại 5 kg (MT5)</div>
+                                    </div>
+                                </div>
+                                <div class="typeText">
+                                    <div><b>Công dụng:</b> Bình chữa cháy khí CO₂ được sử dụng để dập tắt các đám cháy mới phát sinh liên quan đến thiết bị điện đang hoạt động...</div>
+                                    <div class="typeWarn"><b>Lưu ý:</b><br>⚠️ Không hiệu quả với cháy chất rắn đang âm ỉ<br>⚠️ Không chạm tay trực tiếp vào loa phun kim loại<br>⚠️ Tuyệt đối không sử dụng để dập các đám cháy có than cốc.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="inner-section">
+                            <div class="subTitle">🛠️ Cách kiểm tra Bình chữa cháy</div>
+                            <div class="custom-viewer" style="height: 400px;" data-img-src="images/guide_check.webp">
+                                <div class="viewer-controls"><button class="btn-zoom-in">+</button><button class="btn-zoom-out">-</button><button class="btn-pop-out">↗</button></div>
+                                <div class="img-container"><img src="images/guide_check.webp" alt="Video/Hình ảnh hướng dẫn kiểm tra"><span>[Chèn ảnh/video Cách kiểm tra]</span></div>
+                            </div>
+                        </div>
+
+                        <div class="inner-section">
+                            <div class="subTitle">📝 Yêu cầu Bình chữa cháy</div>
+                            <ul class="basic-list">
+                                <li>Bình chữa cháy phải đặt ở vị trí dễ thấy, dễ lấy, không bị che chắn bởi hàng hóa.</li>
+                                <li>Bình có đầy đủ loa phun, vòi phun, tem kiểm định, phiếu kiểm tra bảo dưỡng bình.</li>
+                                <li>Bình chữa cháy được gắn phiếu kiểm tra bình chữa cháy; Bưu cục thực hiện kiểm tra và ký xác nhận định kỳ hàng tháng (30 ngày/lần).<br>
+                                <a href="https://drive.google.com/file/d/19lIQtsj6nYCKDCRk2_mqTWVhAuc-ytFf/view" target="_blank" class="inline-link">Mở Phiếu kiểm tra bình chữa cháy</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="inner-section">
+                            <div class="subTitle">📖 Cách sử dụng Bình chữa cháy</div>
+                            <a href="https://www.youtube.com/watch?v=8UApnu87Ig0" target="_blank" class="inline-link" style="margin-bottom: 10px; display: inline-block;">Link hướng dẫn sử dụng chi tiết</a>
+                            <div class="custom-viewer" style="height: 400px;" data-img-src="images/guide_use.webp">
+                                <div class="viewer-controls"><button class="btn-zoom-in">+</button><button class="btn-zoom-out">-</button><button class="btn-pop-out">↗</button></div>
+                                <div class="img-container"><img src="images/guide_use.webp" alt="Video/Hình ảnh hướng dẫn sử dụng"><span>[Chèn ảnh/video Cách sử dụng]</span></div>
+                            </div>
+                        </div>
+
+                        <div class="inner-section">
+                            <div class="subTitle">🆘 Quy trình ứng phó khi xảy ra sự cố khẩn cấp</div>
+                            <div class="custom-viewer" style="height: 400px;" data-img-src="images/Quy_trinh_ung_pho.jpg">
+                                <div class="viewer-controls"><button class="btn-zoom-in">+</button><button class="btn-zoom-out">-</button><button class="btn-pop-out">↗</button></div>
+                                <div class="img-container"><img src="images/Quy_trinh_ung_pho.jpg" alt="Quy trình ứng phó"><span>[Chèn ảnh/video Quy trình ứng phó]</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="quy-dinh-ccdc" class="subBlock">
+                        <div class="subTitle"><span class="subIco">🧰</span> Quy định trang bị công cụ dụng cụ PCCC-CNCH (Bưu cục)</div>
+                        <div class="desc highlight-desc">
+                            <b>Phân loại đối tượng áp dụng:</b> Căn cứ quy mô & mức độ nguy hiểm cháy nổ theo <b>NĐ 105/2025/NĐ-CP</b> (Phụ lục I & II), bưu cục được chia thành 2 nhóm trang bị chính:
+                        </div>
+                        <ul class="basic-list">
+                            <li><b>Cơ sở thuộc diện quản lý về PCCC</b> (Phụ lục I)</li>
+                            <li><b>Cơ sở có nguy hiểm cháy nổ</b> (Phụ lục II)</li>
+                        </ul>
+
+                        <div class="inner-section" style="margin-top: 15px;">
+                            <div class="subTitle"><span class="badge" style="background:var(--brand); color:#fff;">📋</span> Danh mục trang bị tối thiểu (loại trừ bình chữa cháy)</div>
+                            <div class="desc highlight-desc" style="margin-bottom:10px">Bảng số lượng trang bị căn cứ theo Phụ lục I - <b>TT 36/2025/TT-BCA</b>.</div>
+                            
+                            <div class="table-wrap">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th rowspan="2" style="width:50px; text-align:center;">STT</th>
+                                            <th rowspan="2">Danh mục CCDC cơ bản</th>
+                                            <th rowspan="2">Thông số / yêu cầu cơ bản</th>
+                                            <th rowspan="2" style="text-align:center;">Đơn vị</th>
+                                            <th colspan="2" style="text-align:center;">Số lượng trang bị</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Cơ sở thuộc diện quản lý về PCCC<br><span class="th-sub">(cao dưới 2 tầng hoặc diện tích < 500m²)</span></th>
+                                            <th>Cơ sở thuộc diện có nguy hiểm cháy nổ<br><span class="th-sub">(cao từ 3 tầng hoặc diện tích > 500m²)</span></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td class="center">1</td><td>Hệ thống đèn Exit & Sự cố</td><td>Tự động sáng khi mất điện (chuẩn TCVN 13456)</td><td class="center">Bộ</td><td class="center"><b>02</b></td><td class="center"><b>02</b></td></tr>
+                                        <tr><td class="center">2</td><td>Tiêu lệnh/Nội quy PCCC</td><td>Kích thước tiêu chuẩn 32cm×44cm hoặc 40cm×18cm</td><td class="center">Bộ</td><td class="center"><b>01</b></td><td class="center"><b>01</b></td></tr>
+                                        <tr><td class="center">3</td><td>Đèn pin chuyên dụng</td><td>Độ sáng tối thiểu 200 lm, chịu nước tối thiểu IPX5</td><td class="center">Chiếc</td><td class="center"><b>01</b></td><td class="center"><b>02</b></td></tr>
+                                        <tr><td class="center">4</td><td>Rìu cứu hỏa</td><td>Chất liệu đầu rìu bằng thép cacbon cao</td><td class="center">Chiếc</td><td class="center"><b>01</b></td><td class="center"><b>02</b></td></tr>
+                                        <tr><td class="center">5</td><td>Xà beng</td><td>Một đầu nhọn, một đầu dẹt; dài tối thiểu 100 cm</td><td class="center">Chiếc</td><td class="center"><b>01</b></td><td class="center"><b>01</b></td></tr>
+                                        <tr><td class="center">6</td><td>Búa tạ</td><td>Chất liệu đầu búa bằng thép cacbon cao, nặng tối thiểu 5 kg</td><td class="center">Chiếc</td><td class="center"><b>01</b></td><td class="center"><b>01</b></td></tr>
+                                        <tr><td class="center">7</td><td>Kìm cộng lực</td><td>Tải cắt tối thiểu 60 kg</td><td class="center">Chiếc</td><td class="center"><b>01</b></td><td class="center"><b>01</b></td></tr>
+                                        <tr><td class="center">8</td><td>Mặt nạ</td><td>Mặt nạ lọc độc hoặc mặt nạ phòng độc cách ly</td><td class="center">Bộ</td><td class="center"><b>0</b></td><td class="center"><b>03</b></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="note" style="margin-top:15px;">
+                                ✅ <b>Lưu ý triển khai thực tế</b>
+                                <ul class="basic-list" style="margin-top:8px">
+                                    <li><b>Hệ thống chiếu sáng & chỉ dẫn:</b> Đèn Exit và đèn sự cố phải lắp tại cửa và lối ra thoát nạn. GHN thường có 2 lối thoát hiểm...</li>
+                                    <li><b>Hướng mở cửa:</b> Tất cả cửa thoát hiểm phải là loại mở ra ngoài...</li>
+                                    <li><b>Tiêu lệnh/Nội quy PCCC:</b> Đối với bưu cục có diện tích lớn... cần niêm yết bổ sung.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            
+        </div> </div> <script src="script.js"></script>
+</body>
+</html>
