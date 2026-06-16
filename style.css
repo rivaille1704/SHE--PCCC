@@ -104,73 +104,84 @@ body {
    Responsive Mobile: Tràn 100% lề, Scale tỷ lệ ~80%
    ========================================================= */
 @media (max-width: 900px) {
-    /* 1. Ép bố cục tràn viền 100%, xóa mọi khoảng trắng 2 bên */
+    /* 1. Ép bố cục tràn viền, xóa mọi khoảng trống thừa */
     .doc-layout { 
-        padding: 0 !important; 
+        padding: 5px !important; 
         margin: 0; 
         flex-direction: column; 
+        width: 100vw;
     }
     
-    /* 2. Main content chiếm full màn hình, bỏ viền, bỏ bo góc */
+    /* 2. Main content chiếm full, bỏ viền, bỏ shadow để tối ưu không gian */
     .main-content { 
-        padding: 15px 10px; /* Đệm cực nhỏ chỉ 10px để chữ không dính sát mép ĐT */
+        padding: 10px 5px; 
         margin: 0;
         border: none; 
         border-radius: 0;
         box-shadow: none;
+        width: 100%;
+        /* Scale nhẹ nội dung xuống 90% để không bị ép chữ */
+        zoom: 0.9; 
     }
 
-    /* 3. "Scale 80%" các thành phần bên trong để không bị ép chữ */
-    .widget-block { padding: 15px 10px; border-radius: 8px; border-left: none; border-right: none; }
-    .subBlock { padding: 12px 10px; }
-    .card, .card-outline, .typeCard { padding: 10px; }
-    .grid2 { gap: 8px; } /* Giảm khoảng cách giữa 2 cột */
+    /* 3. ÉP HAI CỘT LUÔN NẰM NGANG (Không bị đẩy dọc) */
+    .grid2 { 
+        display: grid !important; 
+        grid-template-columns: 1fr 1fr !important; /* Luôn giữ 2 cột */
+        gap: 6px !important; 
+    }
 
-    /* 4. Thu nhỏ chữ xuống một chút để khít một dòng */
-    .section-heading h2 { font-size: 22px; }
-    .topText { font-size: 18px; }
-    .subTitle { font-size: 16px; margin-bottom: 10px; }
-    .desc, .cardBody, .itemText, .basic-list { font-size: 14px; line-height: 1.5; }
+    /* 4. Điều chỉnh khoảng cách và font chữ */
+    .widget-block { padding: 10px; border-radius: 8px; border: none; }
+    .subBlock { padding: 10px; margin-bottom: 10px; }
+    .card, .card-outline, .typeCard { padding: 8px; }
 
-    /* Nút Menu nổi (Giữ nguyên) */
+    .section-heading h2 { font-size: 20px; }
+    .subTitle { font-size: 15px; }
+    .desc, .cardBody, .itemText, .basic-list { font-size: 13px; line-height: 1.4; }
+
+    /* Nút Menu nổi (Góc dưới phải) */
     .mobile-menu-btn {
         display: block;
         position: fixed;
-        bottom: 20px;
-        right: 20px;
+        bottom: 15px;
+        right: 15px;
         background-color: var(--brand);
         color: #fff;
         border: none;
-        padding: 12px 20px;
+        padding: 10px 18px;
         border-radius: 50px;
-        font-size: 14px;
+        font-size: 13px;
         font-weight: bold;
         box-shadow: 0 4px 10px rgba(255, 77, 0, 0.4);
         z-index: 999;
         cursor: pointer;
     }
 
-    /* Sidebar trượt (Giữ nguyên) */
+    /* Sidebar trượt từ trái ra */
     .sidebar {
         position: fixed;
         top: 0; left: 0;
         height: 100vh;
-        width: 280px;
+        width: 80%; /* Chiếm 80% chiều ngang khi mở */
         margin: 0;
         border-radius: 0;
-        border-right: 1px solid var(--border) !important;
+        border-right: 1px solid var(--border);
         transform: translateX(-100%);
+        transition: transform 0.3s ease;
         box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+        padding: 20px 15px;
     }
     .sidebar.active { transform: translateX(0); }
+    
     .close-menu-btn {
         display: block;
         position: absolute;
-        top: 15px;
+        top: 10px;
         right: 15px;
         background: none; border: none;
-        font-size: 28px; color: var(--text-color);
-        cursor: pointer; line-height: 1;
+        font-size: 24px; color: var(--text-color);
+        cursor: pointer;
     }
 }
 
