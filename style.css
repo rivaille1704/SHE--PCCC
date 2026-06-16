@@ -264,7 +264,14 @@ body {
 .tl-no { position: absolute; left: -40px; width: 32px; height: 32px; border-radius: 10px; background: var(--brand); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; }
 .tl-card { width: 100%; border: 1px solid var(--border); border-radius: 14px; padding: 10px 14px; font-size: 14.5px; line-height: 1.6; }
 
-.table-wrap { border: 1px solid var(--border); border-radius: 14px; overflow-x: auto; margin-top: 15px; }
+.table-wrap {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow-x: auto; /* Cho phép cuộn ngang */
+    margin-top: 15px;
+    -webkit-overflow-scrolling: touch; /* Giúp vuốt mượt trên iOS */
+    box-shadow: inset -10px 0 10px -10px rgba(0,0,0,0.1); /* Hiệu ứng "bóng" báo hiệu có thể vuốt sang phải */
+}
 .data-table { width: 100%; min-width: 700px; border-collapse: collapse; font-size: 13.5px; line-height: 1.5; }
 .data-table th, .data-table td { padding: 10px; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); }
 .data-table th { background: rgba(255, 77, 0, .08); font-weight: 900; }
