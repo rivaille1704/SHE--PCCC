@@ -31,11 +31,44 @@ body {
 .site-logo { height: 40px; margin-right: 15px; background: #eee; min-width: 40px; }
 .site-title { font-size: 18px; font-weight: 700; }
 
-.hero-section { position: relative; height: 310px; background: #333; background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; }
-.hero-overlay { position: absolute; inset: 0; background: rgba(33, 33, 33, 0.5); }
-.hero-content { position: relative; z-index: 1; color: #fff; padding: 0 20px; }
-.hero-content h1 { font-size: 44px; font-weight: 600; margin: 0; line-height: 1.3; }
+.hero-section {
+    position: relative;
+    height: 350px; /* Tăng chiều cao để ảnh nhìn thoáng hơn */
+    
+    /* Thiết lập ảnh nền từ thư mục images */
+    background-image: url('../images/PCCC.jpg'); 
+    background-size: cover;       /* Ảnh lấp đầy vùng chọn */
+    background-position: center;  /* Căn giữa ảnh */
+    background-repeat: no-repeat;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    /* Lớp phủ màu đen với độ mờ 50% giúp chữ nổi bật */
+    background: rgba(0, 0, 0, 0.5); 
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    padding: 0 20px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* Tạo bóng nhẹ cho chữ */
+}
+
+.hero-content h1 {
+    font-size: 40px;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
 /* =========================================================
    2. LAYOUT DOCUMENTATION (CĂN GIỮA & MOBILE MENU)
    ========================================================= */
@@ -105,32 +138,36 @@ body {
    ========================================================= */
 @media (max-width: 900px) {
     /* 1. Ép bố cục tràn viền, xóa mọi khoảng trống thừa */
-    .doc-layout { 
-        padding: 5px !important; 
-        margin: 0; 
-        flex-direction: column; 
-        width: 100vw;
-    }
-    
-    /* 2. Main content chiếm full, bỏ viền, bỏ shadow để tối ưu không gian */
-   .main-content-wrapper {
+    html, body {
         width: 100%;
-        overflow: hidden; /* Tránh tạo thanh cuộn ngang */
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
     }
 
-    /* Thu nhỏ nội dung chính xuống 85% */
+    /* 2. Main content là khung nhìn cứng, chiều rộng đúng 100% màn hình */
     .main-content {
-        zoom: 0.75; /* Hoặc sử dụng transform: scale(0.85); */
-        width: 117%; /* Bù trừ lại kích thước khi zoom để nó tràn đầy màn hình */
-        transform-origin: top left;
+        width: 100%;
+        overflow: hidden; /* Cắt bỏ mọi thứ dư thừa */
+        padding: 10px;
+        box-sizing: border-box;
     }
-   
 
-    /* 3. ÉP HAI CỘT LUÔN NẰM NGANG (Không bị đẩy dọc) */
-    .grid2 { 
-        display: grid !important; 
-        grid-template-columns: 1fr 1fr !important; /* Luôn giữ 2 cột */
-        gap: 6px !important; 
+    /* 3. Scale wrapper thu nhỏ nội dung lại */
+    .scale-wrapper {
+        width: 125%; /* (1 / 0.8 = 1.25) => Bù trừ lại phần đã bị thu nhỏ */
+        transform: scale(0.8); /* Thu nhỏ còn 80% */
+        transform-origin: top left; /* Thu nhỏ từ góc trái trên */
+        
+        /* Đảm bảo chiều cao không bị dư */
+        margin-bottom: -20%; /* Dòng này cực kỳ quan trọng: nó kéo phần dư thừa ở dưới lên */
+    }
+
+    /* 4. Giữ grid luôn nằm ngang */
+    .grid2 {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 8px !important;
     }
 
     /* 4. Điều chỉnh khoảng cách và font chữ */
@@ -264,14 +301,7 @@ body {
 .tl-no { position: absolute; left: -40px; width: 32px; height: 32px; border-radius: 10px; background: var(--brand); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: bold; }
 .tl-card { width: 100%; border: 1px solid var(--border); border-radius: 14px; padding: 10px 14px; font-size: 14.5px; line-height: 1.6; }
 
-.table-wrap {
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    overflow-x: auto; /* Cho phép cuộn ngang */
-    margin-top: 15px;
-    -webkit-overflow-scrolling: touch; /* Giúp vuốt mượt trên iOS */
-    box-shadow: inset -10px 0 10px -10px rgba(0,0,0,0.1); /* Hiệu ứng "bóng" báo hiệu có thể vuốt sang phải */
-}
+.table-wrap { border: 1px solid var(--border); border-radius: 14px; overflow-x: auto; margin-top: 15px; }
 .data-table { width: 100%; min-width: 700px; border-collapse: collapse; font-size: 13.5px; line-height: 1.5; }
 .data-table th, .data-table td { padding: 10px; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); }
 .data-table th { background: rgba(255, 77, 0, .08); font-weight: 900; }
