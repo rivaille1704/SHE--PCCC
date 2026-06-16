@@ -113,16 +113,18 @@ body {
     }
     
     /* 2. Main content chiếm full, bỏ viền, bỏ shadow để tối ưu không gian */
-    .main-content { 
-        padding: 10px 5px; 
-        margin: 0;
-        border: none; 
-        border-radius: 0;
-        box-shadow: none;
+   .main-content-wrapper {
         width: 100%;
-        /* Scale nhẹ nội dung xuống 90% để không bị ép chữ */
-        zoom: 0.9; 
+        overflow: hidden; /* Tránh tạo thanh cuộn ngang */
     }
+
+    /* Thu nhỏ nội dung chính xuống 85% */
+    .main-content {
+        zoom: 0.85; /* Hoặc sử dụng transform: scale(0.85); */
+        width: 117%; /* Bù trừ lại kích thước khi zoom để nó tràn đầy màn hình */
+        transform-origin: top left;
+    }
+   
 
     /* 3. ÉP HAI CỘT LUÔN NẰM NGANG (Không bị đẩy dọc) */
     .grid2 { 
