@@ -7,10 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <link rel="stylesheet" href="style_kho.css">
 </head>
-<body>
-    <!-- Đã xóa id="cubes-bg" theo yêu cầu -->
+<body style="background-color: #FFF4E6;">
     <div class="main-content-wrapper">
         <header class="site-header">
             <div class="header-container">
@@ -35,7 +35,6 @@
 
                 <aside class="sidebar" id="sidebar">
                     <button id="close-menu-btn" class="close-menu-btn">×</button>
-                    
                     <nav class="toc">
                         <div class="toc-title">MỤC LỤC KHO</div>
                         <ul>
@@ -56,11 +55,26 @@
                             <h2>CÁC HẠNG MỤC TUÂN THỦ VỀ<br>PHÒNG CHÁY CHỮA CHÁY TẠI CÁC KHO</h2>
                         </div>
 
-                        <!-- MỤC I -->
-                        <div id="muc-I" class="widget-block">
-                            <div class="topHead">
-                                <div class="topText">I. Phân loại các cơ sở cần quản lý PCCC</div>
+                        <div class="toolCard" id="global-tool" style="margin-bottom: 30px; border-color: #f59e0b; box-shadow: 0 10px 25px rgba(245, 158, 11, 0.15);">
+                            <div class="toolHead" style="border-top-color: #f59e0b; background-color: #fffbeb;">
+                                <div class="toolHeadText">
+                                    <div class="toolTitle" style="color: #d97706; font-size: 20px;">ĐIỀN THÔNG TIN KHO CỦA BẠN</div>
+                                    <div class="toolSub" style="color: #92400e;">Hệ thống sẽ tự động trích xuất các quy định PCCC áp dụng riêng cho Kho của bạn.</div>
+                                </div>
                             </div>
+                            <div class="toolBody">
+                                <label class="toolLabel">Diện tích kho của bạn là bao nhiêu (m²)?</label>
+                                <div class="toolRow">
+                                    <input id="global-area" class="toolArea" type="number" min="0" step="1" placeholder="VD: 1500" style="border-color: #fcd34d;" />
+                                    <button id="global-calc-btn" class="toolCalc" type="button" style="background-color: #f59e0b;">Tra cứu toàn bộ</button>
+                                    <button id="global-reset-btn" class="toolReset" type="button">Làm mới</button>
+                                </div>
+                                <div id="global-error" style="display:none; margin-top: 15px; color: #ef4444; font-weight: bold;"></div>
+                            </div>
+                        </div>
+
+                        <div id="muc-I" class="widget-block">
+                            <div class="topHead"><div class="topText">I. Phân loại các cơ sở cần quản lý PCCC</div></div>
                             <div class="subBlock">
                                 <div class="desc" style="margin-bottom: 10px;">
                                     Đối với cơ sở kho hàng, theo Phụ lục II và Phụ lục III của Nghị định 105/2025/NĐ-CP, đây là loại hình thuộc danh mục cơ sở có nguy hiểm về cháy, nổ. Đối với kho chứa hàng hóa có hạng nguy hiểm cháy nổ A, B hoặc hạng C (thông thường các kho hàng tổng hợp, kho phân loại hàng hóa như GHN được xác định thuộc hạng C), cơ sở được phân thành:<br>
@@ -70,34 +84,17 @@
                                     </ul>
                                     Trong thực tế, các kho thuộc Nhóm 1 thường thuộc diện phải thực hiện các thủ tục về thiết kế và thẩm định PCCC theo quy định hiện hành; các kho thuộc Nhóm 2 không thuộc diện này nhưng vẫn phải bảo đảm các điều kiện an toàn PCCC theo quy định pháp luật.
                                 </div>
-                                
-                                <div class="desc" style="margin-bottom: 25px;">
+                                <div class="desc" style="margin-bottom: 15px;">
                                     👉 <a href="https://thuvienphapluat.vn/van-ban/Xay-dung-Do-thi/Thong-tu-06-2022-TT-BXD-Quy-chuan-QCVN-06-2022-BXD-An-toan-chay-cho-nha-va-cong-trinh-544059.aspx#:~:text=CV4-,PH%E1%BB%A4%20L%E1%BB%A4C%20C,V%C3%80%20C%C3%81C%20GIAN%20PH%C3%92NG%20C%C3%93%20C%C3%94NG%20N%C4%82NG%20S%E1%BA%A2N%20XU%E1%BA%A4T%20V%C3%80%20KHO,-C.1%20H%E1%BA%A1ng" target="_blank" style="color: var(--brand); font-weight: bold; text-decoration: underline;">Nhấn vào đây để xem chi tiết Bảng mô tả Phân loại hạng nguy hiểm cháy nổ</a>
                                 </div>
 
-                                <div class="toolCard" data-tool="phan-loai-kho" style="margin-bottom: 10px;">
-                                    <div class="toolHead" style="border-top-color: #f59e0b;"> 
-                                        <div class="toolHeadText">
-                                            <div class="toolTitle">Kiểm tra Nhóm quản lý PCCC</div>
-                                            <div class="toolSub">Vui lòng nhập diện tích Kho của bạn để theo dõi các thông tin chi tiết</div>
-                                        </div>
-                                    </div>
-                                    <div class="toolBody">
-                                        <label class="toolLabel">Diện tích kho của bạn là bao nhiêu (m²)?</label>
-                                        <div class="toolRow">
-                                            <input class="toolArea input-phan-loai" type="number" min="0" step="1" placeholder="VD: 1500" />
-                                            <button class="toolCalc btn-calc-phan-loai" type="button" style="background-color: #f59e0b;">Kiểm tra</button>
-                                        </div>
-                                        <div class="toolResult result-phan-loai" style="display:none; margin-top: 15px;"></div>
-                                    </div>
-                                </div>
-                                
+                                <div class="require-area-msg" style="color: var(--brand); font-style: italic;">👉 Vui lòng nhập diện tích kho ở đầu trang để xem kết quả phân loại.</div>
+                                <div id="res-muc1" style="display:none; padding: 15px; border-radius: 8px; background: #fffbeb; border: 1px dashed #f59e0b;"></div>
                             </div>
                         </div>
 
-                        <!-- MỤC II -->
                         <div id="muc-II" class="widget-block">
-                            <div class="topHead"><div class="topText">II, TRÁCH NHIỆM CỦA NGƯỜI ĐỨNG ĐẦU CƠ SỞ</div></div>
+                            <div class="topHead"><div class="topText">II. TRÁCH NHIỆM CỦA NGƯỜI ĐỨNG ĐẦU CƠ SỞ</div></div>
                             <div class="subBlock">
                                 <div class="desc">
                                     - Người đứng đầu cơ sở (gồm người đại diện pháp luật hoặc người được giao quản lý trực tiếp công tác PCCC) chịu trách nhiệm trước pháp luật trong việc tổ chức, duy trì điều kiện an toàn PCCC<br>
@@ -106,42 +103,20 @@
                             </div>
                         </div>
 
-                        <!-- MỤC III -->
                         <div id="muc-III" class="widget-block">
-                            <div class="topHead"><div class="topText">III, HỒ SƠ QUẢN LÝ VỀ CÔNG TÁC PCCC & CNCH</div></div>
+                            <div class="topHead"><div class="topText">III. HỒ SƠ QUẢN LÝ VỀ CÔNG TÁC PCCC & CNCH</div></div>
                             <div class="subBlock">
                                 
-                                <div class="toolCard" data-tool="hoso-pccc" style="margin-bottom: 25px; border-color: #0ea5e9;">
-                                    <div class="toolHead" style="border-top-color: #0ea5e9;">
-                                        <div class="toolHeadText">
-                                            <div class="toolTitle" style="color: #0284c7;">Kiểm tra Thành phần Hồ sơ cần có</div>
-                                            <div class="toolSub">Nhập diện tích Kho để xem danh sách hồ sơ PCCC tương ứng</div>
-                                        </div>
-                                    </div>
-                                    <div class="toolBody">
-                                        <label class="toolLabel">Diện tích kho của bạn là bao nhiêu (m²)?</label>
-                                        <div class="toolRow">
-                                            <input class="toolArea input-hoso" type="number" min="0" step="1" placeholder="VD: 1500" />
-                                            <button class="toolCalc btn-calc-hoso" type="button" style="background-color: #0ea5e9;">Kiểm tra Hồ sơ</button>
-                                        </div>
-                                        <div class="toolResult result-hoso" style="display:none; margin-top: 15px;"></div>
-                                    </div>
-                                </div>
+                                <div class="require-area-msg" style="color: var(--brand); font-style: italic; margin-bottom: 15px;">👉 Vui lòng nhập diện tích kho ở đầu trang để xem danh mục hồ sơ cần chuẩn bị.</div>
+                                
+                                <div id="res-muc3-text" style="display:none; margin-bottom: 15px; padding: 15px; border-radius: 8px; border: 1px dashed #0ea5e9; background: #f0f9ff; color: #0369a1;"></div>
 
                                 <div id="table-nhom2" class="table-wrap" style="display: none;">
-                                    <div style="background-color: #166534; color: white; padding: 10px 15px; font-weight: bold; border-top-left-radius: 8px; border-top-right-radius: 8px;">
-                                        CÁC HỒ SƠ CẦN CÓ CHO NHÓM 2 (Kho dưới 2.000 m²)
-                                    </div>
+                                    <div style="background-color: #166534; color: white; padding: 10px 15px; font-weight: bold;">CÁC HỒ SƠ CẦN CÓ CHO NHÓM 2 (Kho dưới 2.000 m²)</div>
                                     <table class="data-table">
-                                        <thead>
-                                            <tr>
-                                                <th style="width: 50px;">STT</th>
-                                                <th>Thành phần hồ sơ (Căn cứ ND105/NĐ-CP)</th>
-                                                <th>Yêu cầu thực hiện (Không thuộc diện thẩm định)</th>
-                                            </tr>
-                                        </thead>
+                                        <thead><tr><th style="width: 50px;">STT</th><th>Thành phần hồ sơ (Căn cứ ND105/NĐ-CP)</th><th>Yêu cầu thực hiện (Không thuộc diện thẩm định)</th></tr></thead>
                                         <tbody>
-                                            <tr><td class="center">1</td><td>GCN/ Văn bản thẩm định thiết kế PCCC</td><td>❌ Không cần Giấy chứng nhận/Văn bản thẩm định thiết kế và Văn bản chấp thuận nghiệm thu PCCC.</td></tr>
+                                            <tr><td class="center">1</td><td>GCN/ Văn bản thẩm định thiết kế PCCC</td><td>❌ Không cần GCN/Văn bản thẩm định thiết kế và Văn bản nghiệm thu PCCC.</td></tr>
                                             <tr><td class="center">2</td><td>Bản vẽ hoàn công hệ thống</td><td>❌ Chủ đầu tư tự lưu bản vẽ hoàn công xây dựng, thiết kế hệ thống PCCC tự làm để phục vụ bảo dưỡng và giải trình khi bị kiểm tra liên ngành.</td></tr>
                                             <tr><td class="center">3</td><td>Phiếu thông tin cơ sở (Mẫu PC01)</td><td>Có lập và tự khai báo thông tin.</td></tr>
                                             <tr><td class="center">4</td><td>Nội quy PCCC & CNCH</td><td>Phải có đầy đủ (Tự ký ban hành và niêm yết tại kho).</td></tr>
@@ -154,38 +129,30 @@
                                             <tr><td class="center">11</td><td>Báo cáo kết quả thực hiện công tác PCCC (Mẫu PC04)</td><td>Có</td></tr>
                                             <tr><td class="center">12</td><td>Hồ sơ huấn luyện và Thực tập PCCC & CNCH</td><td>Có</td></tr>
                                             <tr><td class="center">13</td><td>Hồ sơ bảo trì, bảo dưỡng hệ thống PCCC</td><td>Tối thiểu 01 lần/ 1 năm</td></tr>
-                                            <tr><td class="center">14</td><td>Tần suất kiểm tra định kỳ của cơ quan nhà nước</td><td>02 năm /1 lần</td></tr>
+                                            <tr><td class="center">14</td><td>Tần suất kiểm tra định kỳ của CQNN</td><td>02 năm /1 lần</td></tr>
                                         </tbody>
                                     </table>
                                 </div>
 
                                 <div id="table-nhom1" class="table-wrap" style="display: none;">
-                                    <div style="background-color: #b91c1c; color: white; padding: 10px 15px; font-weight: bold; border-top-left-radius: 8px; border-top-right-radius: 8px;">
-                                        CÁC HỒ SƠ CẦN CÓ CHO NHÓM 1 (Kho từ 2.000 m² trở lên)
-                                    </div>
+                                    <div style="background-color: #b91c1c; color: white; padding: 10px 15px; font-weight: bold;">CÁC HỒ SƠ CẦN CÓ CHO NHÓM 1 (Kho từ 2.000 m² trở lên)</div>
                                     <table class="data-table">
-                                        <thead>
-                                            <tr>
-                                                <th style="width: 50px;">STT</th>
-                                                <th>Thành phần hồ sơ (Căn cứ ND105/NĐ-CP)</th>
-                                                <th>Yêu cầu thực hiện (Thuộc diện phải thẩm định)</th>
-                                            </tr>
-                                        </thead>
+                                        <thead><tr><th style="width: 50px;">STT</th><th>Thành phần hồ sơ (Căn cứ ND105/NĐ-CP)</th><th>Yêu cầu thực hiện (Thuộc diện phải thẩm định)</th></tr></thead>
                                         <tbody>
-                                            <tr><td class="center">1</td><td>GCN/ Văn bản thẩm định thiết kế PCCC</td><td>BẮT BUỘC PHẢI CÓ:<br>1. Văn bản thẩm định thiết kế về PCCC (do Công an/Xây dựng cấp).<br>2. Văn bản chấp thuận kết quả nghiệm thu về PCCC trước khi đưa kho vào hoạt động.</td></tr>
+                                            <tr><td class="center">1</td><td>GCN/ Văn bản thẩm định thiết kế PCCC</td><td>BẮT BUỘC PHẢI CÓ:<br>1. VB thẩm định thiết kế về PCCC (do Công an/Xây dựng cấp).<br>2. VB chấp thuận kết quả nghiệm thu trước khi đưa kho vào HĐ.</td></tr>
                                             <tr><td class="center">2</td><td>Bản vẽ hoàn công hệ thống</td><td>Bắt buộc lưu Bản vẽ hoàn công có đóng dấu xác nhận của chủ đầu tư, nhà thầu và dấu thẩm định của Cơ quan Công an.</td></tr>
                                             <tr><td class="center">3</td><td>Phiếu thông tin cơ sở (Mẫu PC01)</td><td>Có lập và khai báo thông tin.</td></tr>
                                             <tr><td class="center">4</td><td>Nội quy PCCC & CNCH</td><td>Phải có đầy đủ (Tự ký ban hành và niêm yết tại kho).</td></tr>
                                             <tr><td class="center">5</td><td>Đội PCCC cơ sở</td><td>Bắt buộc thành lập Đội PCCC cơ sở hoặc Đội PCCC chuyên ngành</td></tr>
                                             <tr><td class="center">6</td><td>Giấy chứng nhận bảo hiểm cháy nổ bắt buộc</td><td>Bắt buộc</td></tr>
-                                            <tr><td class="center">7</td><td>Phương án chữa cháy cơ sở (Mẫu PC06)</td><td>Chủ cơ sở xây dựng nhưng phải gửi 1 bản lên Cơ quan Công an có thẩm quyền để phê duyệt (hoặc Công an sẽ tự xây dựng phương án phối hợp xe chữa cháy thành phố tùy thuộc vào mức độ nguy hiểm).</td></tr>
+                                            <tr><td class="center">7</td><td>Phương án chữa cháy cơ sở (Mẫu PC06)</td><td>Chủ cơ sở xây dựng nhưng phải gửi 1 bản lên Cơ quan Công an có thẩm quyền để phê duyệt.</td></tr>
                                             <tr><td class="center">8</td><td>Sổ theo dõi phương tiện PCCC, CNCH</td><td>Có</td></tr>
                                             <tr><td class="center">9</td><td>Biên bản tự kiểm tra về PCCC (Mẫu PC02)</td><td>Có</td></tr>
                                             <tr><td class="center">10</td><td>Văn bản phân công người thực hiện kiểm tra PCCC</td><td>Có</td></tr>
                                             <tr><td class="center">11</td><td>Báo cáo kết quả thực hiện công tác PCCC (Mẫu PC04)</td><td>Có</td></tr>
                                             <tr><td class="center">12</td><td>Hồ sơ huấn luyện và Thực tập PCCC & CNCH</td><td>Có</td></tr>
                                             <tr><td class="center">13</td><td>Hồ sơ bảo trì, bảo dưỡng hệ thống PCCC</td><td><i>Trống</i></td></tr>
-                                            <tr><td class="center">14</td><td>Tần suất kiểm tra định kỳ của cơ quan nhà nước</td><td>01 năm /1 lần</td></tr>
+                                            <tr><td class="center">14</td><td>Tần suất kiểm tra định kỳ của CQNN</td><td>01 năm /1 lần</td></tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -198,31 +165,13 @@
                             </div>
                         </div>
 
-                        <!-- MỤC IV -->
                         <div id="muc-IV" class="widget-block">
-                            <div class="topHead"><div class="topText">IV. Yêu cầu trang bị hệ thống PCCC theo đối tượng</div></div>
+                            <div class="topHead"><div class="topText">IV. Yêu cầu trang bị các hệ thống PCCC theo đối tượng</div></div>
                             <div class="subBlock">
+                                <div class="require-area-msg" style="color: var(--brand); font-style: italic; margin-bottom: 15px;">👉 Vui lòng nhập diện tích kho ở đầu trang để xem hệ thống PCCC cần trang bị.</div>
                                 
-                                <div class="toolCard" data-tool="thiet-bi-pccc" style="margin-bottom: 25px;">
-                                    <div class="toolHead" style="border-top-color: #0ea5e9;">
-                                        <div class="toolHeadText">
-                                            <div class="toolTitle" style="color: #0284c7;">Kiểm tra Yêu cầu trang bị hệ thống PCCC</div>
-                                            <div class="toolSub">Nhập diện tích kho để biết các hệ thống PCCC bắt buộc phải có</div>
-                                        </div>
-                                    </div>
-                                    <div class="toolBody">
-                                        <label class="toolLabel">Diện tích kho của bạn là bao nhiêu (m²)?</label>
-                                        <div class="toolRow">
-                                            <input class="toolArea input-thiet-bi" type="number" min="0" step="1" placeholder="VD: 700" />
-                                            <button class="toolCalc btn-calc-thiet-bi" type="button" style="background-color: #0ea5e9;">Kiểm tra trang bị</button>
-                                        </div>
-                                        <div class="toolResult result-thiet-bi" style="display:none; margin-top: 15px;"></div>
-                                    </div>
-                                </div>
-
                                 <div id="table-thietbi-result" class="table-wrap" style="display: none;">
-                                    <div id="thietbi-table-header" style="color: white; padding: 10px 15px; font-weight: bold; border-top-left-radius: 8px; border-top-right-radius: 8px;">
-                                    </div>
+                                    <div id="thietbi-table-header" style="color: white; padding: 10px 15px; font-weight: bold;"></div>
                                     <table class="data-table">
                                         <thead>
                                             <tr>
@@ -236,13 +185,11 @@
                                             </tbody>
                                     </table>
                                 </div>
-
                             </div>
                         </div>
 
-                        <!-- MỤC V -->
                         <div id="muc-V" class="widget-block">
-                            <div class="topHead"><div class="topText">V, QUY ĐỊNH VỀ BỐ TRÍ PHƯƠNG TIỆN PCCC ( TCVN 7435-1:2004 - ISO 11602-1:2000)</div></div>
+                            <div class="topHead"><div class="topText">V. QUY ĐỊNH VỀ BỐ TRÍ PHƯƠNG TIỆN PCCC (TCVN 7435-1:2004 - ISO 11602-1:2000)</div></div>
                             <div class="subBlock">
                                 <div class="desc">
                                     <b>1 , TRANG BỊ CÔNG CỤ DỤNG CỤ PCCC-CNCH</b><br>
@@ -257,75 +204,19 @@
                                                 <th>Danh mục CCDC</th>
                                                 <th>Thông số</th>
                                                 <th>Đơn vị</th>
-                                                <th>TH1 :Có tổng diện tích sàn từ 2.000 m² trở lên( thuộc diện phải thẩm định)</th>
-                                                <th>TH2 :Kho có diện tích sàn từ 200 m2 đến dưới 2.000 m² (Không thuộc diện thẩm định)</th>
+                                                <th>TH1 : Có tổng diện tích sàn từ 2.000 m² trở lên (thuộc diện phải thẩm định)</th>
+                                                <th>TH2 : Kho có diện tích sàn từ 200 m2 đến dưới 2.000 m² (Không thuộc diện thẩm định)</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td class="center">1</td>
-                                                <td>Hệ thống đèn Exit & Sự cố</td>
-                                                <td>Tự động sáng khi mất điện ( TCVN 13456)</td>
-                                                <td class="center">Bộ</td>
-                                                <td class="center">Theo thiết kế</td>
-                                                <td class="center">Số lượng theo các cửa ra vào/ cửa thoát hiểm của kho</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="center">2</td>
-                                                <td>Tiêu lệnh/ Nội quy PCCC</td>
-                                                <td>Kích thước tiêu chuẩn 32x44 cm hoặc 40x18cm</td>
-                                                <td class="center">Bộ</td>
-                                                <td class="center">Theo thiết kế</td>
-                                                <td class="center">Cần trang bị tối thiểu 1 bộ, tùy thuộc vào diện tích của Kho để trang bị cho phù hợp</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="center">3</td>
-                                                <td>Đèn pin chuyên dụng</td>
-                                                <td>Độ sáng tối thiểu 200 lm, chịu nước tối thiểu IP X5</td>
-                                                <td class="center">Chiếc</td>
-                                                <td class="center">02</td>
-                                                <td class="center">02</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="center">4</td>
-                                                <td>Rìu cứu hỏa</td>
-                                                <td>Chất liệu đầu rìu bằng thép cacbon cao</td>
-                                                <td class="center">Chiếc</td>
-                                                <td class="center">02</td>
-                                                <td class="center">02</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="center">5</td>
-                                                <td>Xà Beng</td>
-                                                <td>Xà beng (một đầu nhọn, một đầu dẹt; dài tối thiểu 100 cm)</td>
-                                                <td class="center">Chiếc</td>
-                                                <td class="center">01</td>
-                                                <td class="center">01</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="center">6</td>
-                                                <td>Búa tạ</td>
-                                                <td>Búa (chất liệu đầu búa bằng thép cacbon cao, nặng tối thiểu 5 kg,)</td>
-                                                <td class="center">Chiếc</td>
-                                                <td class="center">01</td>
-                                                <td class="center">01</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="center">7</td>
-                                                <td>Kìm công lực</td>
-                                                <td>Kìm cộng lực (có tải cắt tối thiểu 60 kg)</td>
-                                                <td class="center">Chiếc</td>
-                                                <td class="center">01</td>
-                                                <td class="center">01</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="center">8</td>
-                                                <td>Mặt nạ</td>
-                                                <td>Mặt nạ lọc độc hoặc mặt nạ phòng độc cách ly</td>
-                                                <td class="center">Bộ</td>
-                                                <td class="center">03</td>
-                                                <td class="center">03</td>
-                                            </tr>
+                                            <tr><td class="center">1</td><td>Hệ thống đèn Exit & Sự cố</td><td>Tự động sáng khi mất điện ( TCVN 13456)</td><td class="center">Bộ</td><td class="center">Theo thiết kế</td><td class="center">Số lượng theo các cửa ra vào/ cửa thoát hiểm của kho</td></tr>
+                                            <tr><td class="center">2</td><td>Tiêu lệnh/ Nội quy PCCC</td><td>Kích thước tiêu chuẩn 32x44 cm hoặc 40x18cm</td><td class="center">Bộ</td><td class="center">Theo thiết kế</td><td class="center">Cần trang bị tối thiểu 1 bộ, tùy thuộc vào diện tích của Kho để trang bị cho phù hợp</td></tr>
+                                            <tr><td class="center">3</td><td>Đèn pin chuyên dụng</td><td>Độ sáng tối thiểu 200 lm, chịu nước tối thiểu IP X5</td><td class="center">Chiếc</td><td class="center">02</td><td class="center">02</td></tr>
+                                            <tr><td class="center">4</td><td>Rìu cứu hỏa</td><td>Chất liệu đầu rìu bằng thép cacbon cao</td><td class="center">Chiếc</td><td class="center">02</td><td class="center">02</td></tr>
+                                            <tr><td class="center">5</td><td>Xà Beng</td><td>Xà beng (một đầu nhọn, một đầu dẹt; dài tối thiểu 100 cm)</td><td class="center">Chiếc</td><td class="center">01</td><td class="center">01</td></tr>
+                                            <tr><td class="center">6</td><td>Búa tạ</td><td>Búa (chất liệu đầu búa bằng thép cacbon cao, nặng tối thiểu 5 kg,)</td><td class="center">Chiếc</td><td class="center">01</td><td class="center">01</td></tr>
+                                            <tr><td class="center">7</td><td>Kìm công lực</td><td>Kìm cộng lực (có tải cắt tối thiểu 60 kg)</td><td class="center">Chiếc</td><td class="center">01</td><td class="center">01</td></tr>
+                                            <tr><td class="center">8</td><td>Mặt nạ</td><td>Mặt nạ lọc độc hoặc mặt nạ phòng độc cách ly</td><td class="center">Bộ</td><td class="center">03</td><td class="center">03</td></tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -338,32 +229,14 @@
 
                                 <div class="desc" style="margin-top: 25px;">
                                     <b>2, TRANG BỊ BÌNH PCCC</b><br><br>
-                                    * Trường hợp 1: Bưu cục và Kho có diện tích sàn dưới 2000 m² không thuộc diện phải làm thẩm duyệt thiết kế. Định mức trung bình 100 m²/ Bình chữa cháy loại Bột MFZ8 <br>
-                                    Lưu ý: Định mức nêu trên là tiêu chí an toàn nội bộ của Công ty, áp dụng đối với các kho/bưu cục không thuộc diện thẩm duyệt thiết kế PCCC, nhằm tăng cường mức độ an toàn phòng cháy chữa cháy.
-                                </div>
-                                
-                                <!-- Thêm Tool tính toán Bình chữa cháy -->
-                                <div class="toolCard" data-tool="kho">
-                                    <div class="toolHead">
-                                        <span class="toolIco">🧮</span>
-                                        <div class="toolHeadText">
-                                            <div class="toolTitle">Công cụ tính số lượng bình chữa cháy (Dành cho Kho)</div>
-                                            <div class="toolSub">Công cụ tính toán số bình tự động theo quy định</div>
-                                        </div>
-                                    </div>
-                                    <div class="toolBody">
-                                        <label class="toolLabel">Nhập diện tích Kho (m²)</label>
-                                        <div class="toolRow">
-                                            <input class="toolArea" type="number" min="0" step="1" placeholder="VD: 500" />
-                                            <button class="toolCalc" type="button">Tính</button>
-                                            <button class="toolReset" type="button">Reset</button>
-                                        </div>
-                                        <div class="toolResult" style="display:none;"></div>
-                                    </div>
+                                    * Trường hợp 1: Bưu cục và Kho có diện tích sàn dưới 2000 m² không thuộc diện phải làm thẩm duyệt thiết kế.<br>
+                                    * Trường hợp 2: Kho lớn diện tích sàn từ 2000 m² trở lên có thuộc diện thẩm duyệt thiết kế, có setup sẵn hệ thống phòng cháy chữa cháy tự động và vách tường thì số lượng, chủng loại và vị trí bố trí bình chữa cháy được thực hiện theo bản vẽ thiết kế PCCC đã được cơ quan có thẩm quyền thẩm duyệt và phê duyệt.
                                 </div>
 
+                                <div class="require-area-msg" style="color: var(--brand); font-style: italic; margin-bottom: 15px;">👉 Vui lòng nhập diện tích kho ở đầu trang để xem số lượng bình chữa cháy cần trang bị.</div>
+                                <div id="res-muc5" style="display:none; margin-top: 15px; padding: 15px; background: rgba(255, 77, 0, .06); border: 1.5px solid rgba(255, 77, 0, .22); border-radius: 12px; font-weight: 500; font-size: 14.5px;"></div>
+
                                 <div class="desc" style="margin-top: 15px;">
-                                    * Trường hợp 2: Kho lớn diện tích sàn từ 2000 m² trở lên có thuộc diện thẩm duyệt thiết kế, có setup sẵn hệ thống phòng cháy chữa cháy tự động và vách tường thì số lượng, chủng loại và vị trí bố trí bình chữa cháy được thực hiện theo bản vẽ thiết kế PCCC đã được cơ quan có thẩm quyền thẩm duyệt và phê duyệt.<br><br>
                                     Một số yêu cầu về bình chữa cháy<br>
                                     - Bình chữa cháy phải đặt ở vị trí dễ thấy, dễ lấy, không bị che chắn bởi hàng hóa.<br>
                                     - Bình có đầy đủ loa phun, vòi phun, tem kiểm định, phiếu kiểm tra bảo dưỡng bình.<br>
@@ -385,64 +258,21 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td class="center">1</td>
-                                                <td>Tần suất tự kiểm tra định kỳ tổng thể của kho</td>
-                                                <td>* 06 tháng/lần (Kho thuộc diện nguy hiểm cháy nổ - Phụ lục II)</td>
-                                                <td>Khoản 2 Điều 14 Nghị định 105/2025/NĐ-CP</td>
-                                                <td>Sau khi kết thúc phải lập Biên bản kiểm tra Mẫu PC02. Khoảng cách giữa các kỳ kiểm tra thường xuyên không quá 01 tháng/lần.</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="center">2</td>
-                                                <td>Chế độ gửi báo cáo cơ quan chức năng</td>
-                                                <td>Trước 15/06 và Trước 15/12 hằng năm</td>
-                                                <td>Khoản 2 Điều 14 Nghị định 105/2025/NĐ-CP</td>
-                                                <td>Phải gửi Báo cáo kết quả công tác PCCC Mẫu PC04 đến UBND cấp xã hoặc Công an quản lý (hoặc nộp online). Hồ sơ phải lưu trữ ít nhất 05 năm.</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="center">3</td>
-                                                <td>Hệ thống báo cháy tự động</td>
-                                                <td>Bảo dưỡng kỹ thuật ít nhất 01 lần/năm</td>
-                                                <td>1.5.13. Thông tư 103/2025/TT-BCA</td>
-                                                <td>Vệ sinh đầu báo khói/nhiệt để tránh bụi bẩn từ hàng hóa bám vào gây báo cháy giả; kiểm tra tủ trung tâm và nút ấn khẩn cấp.</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="center">4</td>
-                                                <td>Hệ thống chữa cháy Sprinkler & họng nước vách tường</td>
-                                                <td>Bảo dưỡng kỹ thuật ít nhất 01 lần/năm</td>
-                                                <td>1.5.13. Thông tư 103/2025/TT-BCA</td>
-                                                <td>* Kiểm tra áp lực nước, vòi, lăng phun.<br>* Đặc biệt lưu ý: Hàng hóa xếp trong kho không được cao quá, phải đảm bảo khoảng cách an toàn đến đầu phun Sprinkler.</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="center">5</td>
-                                                <td>Bình chữa cháy xách tay / bình có bánh xe</td>
-                                                <td>Tự kiểm tra định kỳ 01 lần/tháng<br>Bảo dưỡng kỹ thuật ít nhất 06 tháng /1 lần</td>
-                                                <td>1.5.13. Thông tư 103/2025/TT-BCA</td>
-                                                <td>Kiểm tra áp suất kim đồng hồ (vạch xanh), chốt niêm phong. Bình phải đặt ở vị trí dễ thấy, không bị hàng hóa che khuất.</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="center">6</td>
-                                                <td>Đường lối thoát nạn & hệ thống đèn sự cố</td>
-                                                <td>Tự kiểm tra thường xuyên hàng tháng</td>
-                                                <td>Điểm h, m, o Khoản 1 Điều 13 Nghị định 105/2025/NĐ-CP</td>
-                                                <td>Lối đi giữa các kệ hàng, cửa thoát hiểm của kho phải luôn thông thoáng, tuyệt đối không chất hàng cản trở. Kiểm tra độ sáng đèn EXIT.</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="center">7</td>
-                                                <td>Giải pháp ngăn cháy lan & Hệ thống điện</td>
-                                                <td>Tự kiểm tra thường xuyên</td>
-                                                <td>Điểm e, h Khoản 1 Điều 13 Nghị định 105/2025/NĐ-CP</td>
-                                                <td>Kiểm tra tình trạng hoạt động của cửa cuốn ngăn cháy giữa các phân kho; kiểm tra an toàn đi dây điện tránh quá tải gây chập mạch vào hàng hóa.</td>
-                                            </tr>
+                                            <tr><td class="center">1</td><td>Tần suất tự kiểm tra định kỳ tổng thể của kho</td><td>* 06 tháng/lần (Kho thuộc diện nguy hiểm cháy nổ - Phụ lục II)</td><td>Khoản 2 Điều 14 Nghị định 105/2025/NĐ-CP</td><td>Sau khi kết thúc phải lập Biên bản kiểm tra Mẫu PC02. Khoảng cách giữa các kỳ kiểm tra thường xuyên không quá 01 tháng/lần.</td></tr>
+                                            <tr><td class="center">2</td><td>Chế độ gửi báo cáo cơ quan chức năng</td><td>Trước 15/06 và Trước 15/12 hằng năm</td><td>Khoản 2 Điều 14 Nghị định 105/2025/NĐ-CP</td><td>Phải gửi Báo cáo kết quả công tác PCCC Mẫu PC04 đến UBND cấp xã hoặc Công an quản lý (hoặc nộp online). Hồ sơ phải lưu trữ ít nhất 05 năm.</td></tr>
+                                            <tr><td class="center">3</td><td>Hệ thống báo cháy tự động</td><td>Bảo dưỡng kỹ thuật ít nhất 01 lần/năm</td><td>1.5.13. Thông tư 103/2025/TT-BCA</td><td>Vệ sinh đầu báo khói/nhiệt để tránh bụi bẩn từ hàng hóa bám vào gây báo cháy giả; kiểm tra tủ trung tâm và nút ấn khẩn cấp.</td></tr>
+                                            <tr><td class="center">4</td><td>Hệ thống chữa cháy Sprinkler & họng nước vách tường</td><td>Bảo dưỡng kỹ thuật ít nhất 01 lần/năm</td><td>1.5.13. Thông tư 103/2025/TT-BCA</td><td>* Kiểm tra áp lực nước, vòi, lăng phun.<br>* Đặc biệt lưu ý: Hàng hóa xếp trong kho không được cao quá, phải đảm bảo khoảng cách an toàn đến đầu phun Sprinkler.</td></tr>
+                                            <tr><td class="center">5</td><td>Bình chữa cháy xách tay / bình có bánh xe</td><td>Tự kiểm tra định kỳ 01 lần/tháng<br>Bảo dưỡng kỹ thuật ít nhất 06 tháng /1 lần</td><td>1.5.13. Thông tư 103/2025/TT-BCA</td><td>Kiểm tra áp suất kim đồng hồ (vạch xanh), chốt niêm phong. Bình phải đặt ở vị trí dễ thấy, không bị hàng hóa che khuất.</td></tr>
+                                            <tr><td class="center">6</td><td>Đường lối thoát nạn & hệ thống đèn sự cố</td><td>Tự kiểm tra thường xuyên hàng tháng</td><td>Điểm h, m, o Khoản 1 Điều 13 Nghị định 105/2025/NĐ-CP</td><td>Lối đi giữa các kệ hàng, cửa thoát hiểm của kho phải luôn thông thoáng, tuyệt đối không chất hàng cản trở. Kiểm tra độ sáng đèn EXIT.</td></tr>
+                                            <tr><td class="center">7</td><td>Giải pháp ngăn cháy lan & Hệ thống điện</td><td>Tự kiểm tra thường xuyên</td><td>Điểm e, h Khoản 1 Điều 13 Nghị định 105/2025/NĐ-CP</td><td>Kiểm tra tình trạng hoạt động của cửa cuốn ngăn cháy giữa các phân kho; kiểm tra an toàn đi dây điện tránh quá tải gây chập mạch vào hàng hóa.</td></tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- MỤC VI -->
                         <div id="muc-VI" class="widget-block">
-                            <div class="topHead"><div class="topText">VI, QUY ĐỊNH XỬ PHẠT VI PHẠM VỀ PCCC ( Nghị định 106/2025/ND-CP)</div></div>
+                            <div class="topHead"><div class="topText">VI. QUY ĐỊNH XỬ PHẠT VI PHẠM VỀ PCCC ( Nghị định 106/2025/ND-CP)</div></div>
                             <div class="subBlock">
                                 <div class="desc">
                                     <b>Điều 9. Vi phạm quy định hồ sơ về phòng cháy, chữa cháy, cứu nạn, cứu hộ</b><br>
@@ -450,7 +280,7 @@
                                     Phạt từ 5.000.000 – 7.000.000 đồng: Không lập hồ sơ về PCCC và CNCH.<br><br>
 
                                     <b>Điều 17. Vi phạm quy định về bảo hiểm cháy, nổ bắt buộc</b><br>
-                                    Phạt từ 10.000.000 – 15.000.000 đồng: Mua bảo hiểm không đúng mức phí quy định hoặc nộp thiếu tiền trích cho hoạt động PCCC (từ 50% đến dưới 100%).<br>
+                                    Phạt từ 10.000.000 – 15.000.000 đồng: Mua bảo hiểm không đúng mức phí quy định hoặc nộp thiếu tiền trích cho hoạt động PCCC.<br>
                                     Phạt từ 20.000.000 – 30.000.000 đồng: Nộp thiếu dưới 50% tổng số tiền trích cho hoạt động PCCC từ bảo hiểm.<br>
                                     Phạt từ 30.000.000 – 40.000.000 đồng: Không mua bảo hiểm cháy, nổ bắt buộc đối với cơ sở nguy hiểm về cháy, nổ thuộc Nhóm 2.<br>
                                     Phạt từ 40.000.000 – 50.000.000 đồng: Không mua bảo hiểm đối với cơ sở thuộc Nhóm 1 hoặc không nộp tiền trích cho hoạt động PCCC từ bảo hiểm.<br><br>
@@ -458,8 +288,8 @@
                                     <b>Điều 18. Vi phạm quy định về thẩm định thiết kế, nghiệm thu về phòng cháy và chữa cháy</b><br>
                                     Phạt từ 15.000.000 – 20.000.000 đồng: Tự ý cải tạo, bổ sung công năng công trình hoặc hoán cải phương tiện khi chưa có văn bản thẩm định thiết kế.<br>
                                     Phạt từ 20.000.000 – 25.000.000 đồng: Thi công công trình hoặc đóng mới phương tiện thuộc diện phải thẩm duyệt khi chưa có văn bản thẩm định thiết kế.<br>
-                                    Phạt từ 30.000.000 – 50.000.000 đồng: Đưa công trình, phương tiện vào sử dụng khi chưa có văn bản chấp thuận kết quả nghiệm thu (Bị đình chỉ hoạt động từ 3 - 6 tháng).<br>
-                                    Phạt từ 40.000.000 – 50.000.000 đồng: Đưa công trình, phương tiện vào hoạt động khi chưa có cả văn bản thẩm định thiết kế và nghiệm thu (Bị đình chỉ hoạt động từ 6 - 12 tháng). <br><br>
+                                    Phạt từ 30.000.000 – 50.000.000 đồng: Đưa công trình, phương tiện vào sử dụng khi chưa có văn bản chấp thuận kết quả nghiệm thu.<br>
+                                    Phạt từ 40.000.000 – 50.000.000 đồng: Đưa công trình, phương tiện vào hoạt động khi chưa có cả văn bản thẩm định thiết kế và nghiệm thu.<br><br>
 
                                     <b>Điều 20. Vi phạm quy định về trang bị, lắp đặt phương tiện phòng cháy, chữa cháy, cứu nạn, cứu hộ</b><br>
                                     Thiếu sót về dụng cụ thô sơ/đèn sự cố: <br>
@@ -471,7 +301,7 @@
                                     phạt từ 15.000.000 – 25.000.000 đồng nếu không trang bị phương tiện PCCC cho các đội này.<br>
                                     Hệ thống báo cháy, chữa cháy: <br>
                                     Phạt từ 30.000.000 – 40.000.000 đồng nếu lắp đặt hệ thống không bảo đảm tiêu chuẩn. <br>
-                                    Phạt từ 40.000.000 – 50.000.000 đồng nếu không trang bị, lắp đặt hệ thống báo cháy hoặc hệ thống chữa cháy (Bị đình chỉ hoạt động từ 3 - 6 tháng)..<br><br>
+                                    Phạt từ 40.000.000 – 50.000.000 đồng nếu không trang bị, lắp đặt hệ thống báo cháy hoặc hệ thống chữa cháy.<br><br>
 
                                     <b>Điều 28. Vi phạm quy định về hệ thống Cơ sở dữ liệu về phòng cháy, chữa cháy, cứu nạn, cứu hộ và truyền tin báo cháy</b><br>
                                     Sai sót thông tin: Phạt từ 500.000 – 1.000.000 đồng nếu khai báo không đầy đủ thông tin cơ sở/phương tiện vào hệ thống.<br>
@@ -483,9 +313,8 @@
                             </div>
                         </div>
 
-                        <!-- MỤC VII -->
                         <div id="muc-VII" class="widget-block">
-                            <div class="topHead"><div class="topText">VII, HƯỚNG DẪN XỬ LÝ TRƯỜNG HỢP KHẨN CẤP</div></div>
+                            <div class="topHead"><div class="topText">VII. HƯỚNG DẪN XỬ LÝ TRƯỜNG HỢP KHẨN CẤP</div></div>
                             <div class="subBlock">
                                 <div class="desc" style="font-weight: bold; margin-bottom: 10px;">1, Quy trình ứng phó khi xảy ra sự cố khẩn cấp</div>
                                 <div class="custom-viewer" style="height: 400px; margin-bottom: 20px;">
