@@ -55,24 +55,6 @@
                             <h2>CÁC HẠNG MỤC TUÂN THỦ VỀ<br>PHÒNG CHÁY CHỮA CHÁY TẠI CÁC KHO</h2>
                         </div>
 
-                        <div class="toolCard" id="global-tool" style="margin-bottom: 30px; border-color: #f59e0b; box-shadow: 0 10px 25px rgba(245, 158, 11, 0.15);">
-                            <div class="toolHead" style="border-top-color: #f59e0b; background-color: #fffbeb;">
-                                <div class="toolHeadText">
-                                    <div class="toolTitle" style="color: #d97706; font-size: 20px;">ĐIỀN THÔNG TIN KHO CỦA BẠN</div>
-                                    <div class="toolSub" style="color: #92400e;">Hệ thống sẽ tự động trích xuất các quy định PCCC áp dụng riêng cho Kho của bạn.</div>
-                                </div>
-                            </div>
-                            <div class="toolBody">
-                                <label class="toolLabel">Diện tích kho của bạn là bao nhiêu (m²)?</label>
-                                <div class="toolRow">
-                                    <input id="global-area" class="toolArea" type="number" min="0" step="1" placeholder="VD: 1500" style="border-color: #fcd34d;" />
-                                    <button id="global-calc-btn" class="toolCalc" type="button" style="background-color: #f59e0b;">Tra cứu toàn bộ</button>
-                                    <button id="global-reset-btn" class="toolReset" type="button">Làm mới</button>
-                                </div>
-                                <div id="global-error" style="display:none; margin-top: 15px; color: #ef4444; font-weight: bold;"></div>
-                            </div>
-                        </div>
-
                         <div id="muc-I" class="widget-block">
                             <div class="topHead"><div class="topText">I. Phân loại các cơ sở cần quản lý PCCC</div></div>
                             <div class="subBlock">
@@ -88,7 +70,7 @@
                                     👉 <a href="https://thuvienphapluat.vn/van-ban/Xay-dung-Do-thi/Thong-tu-06-2022-TT-BXD-Quy-chuan-QCVN-06-2022-BXD-An-toan-chay-cho-nha-va-cong-trinh-544059.aspx#:~:text=CV4-,PH%E1%BB%A4%20L%E1%BB%A4C%20C,V%C3%80%20C%C3%81C%20GIAN%20PH%C3%92NG%20C%C3%93%20C%C3%94NG%20N%C4%82NG%20S%E1%BA%A2N%20XU%E1%BA%A4T%20V%C3%80%20KHO,-C.1%20H%E1%BA%A1ng" target="_blank" style="color: var(--brand); font-weight: bold; text-decoration: underline;">Nhấn vào đây để xem chi tiết Bảng mô tả Phân loại hạng nguy hiểm cháy nổ</a>
                                 </div>
 
-                                <div class="require-area-msg" style="color: var(--brand); font-style: italic;">👉 Vui lòng nhập diện tích kho ở đầu trang để xem kết quả phân loại.</div>
+                                <div class="require-area-msg" style="color: var(--brand); font-style: italic;">👉 Vui lòng nhập diện tích kho ở bên dưới để xem kết quả phân loại.</div>
                                 <div id="res-muc1" style="display:none; padding: 15px; border-radius: 8px; background: #fffbeb; border: 1px dashed #f59e0b;"></div>
                             </div>
                         </div>
@@ -100,6 +82,24 @@
                                     - Người đứng đầu cơ sở (gồm người đại diện pháp luật hoặc người được giao quản lý trực tiếp công tác PCCC) chịu trách nhiệm trước pháp luật trong việc tổ chức, duy trì điều kiện an toàn PCCC<br>
                                     - Người đứng đầu cơ sở có thể bị truy cứu trách nhiệm hình sự cá nhân trong trường hợp xảy ra sự cố cháy nổ gây chết người hoặc thiệt hại tài sản/ sức khỏe nghiêm trọng.
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="toolCard" id="global-tool" style="margin-bottom: 30px; border-color: #f59e0b; box-shadow: 0 10px 25px rgba(245, 158, 11, 0.15);">
+                            <div class="toolHead" style="border-top-color: #f59e0b; background-color: #fffbeb;">
+                                <div class="toolHeadText">
+                                    <div class="toolTitle" style="color: #d97706; font-size: 20px;">ĐIỀN THÔNG TIN KHO CỦA BẠN</div>
+                                    <div class="toolSub" style="color: #92400e;">Hệ thống sẽ tự động trích xuất các quy định PCCC áp dụng riêng cho Kho của bạn.</div>
+                                </div>
+                            </div>
+                            <div class="toolBody">
+                                <label class="toolLabel">Diện tích kho của bạn là bao nhiêu (m²)?</label>
+                                <div class="toolRow">
+                                    <input id="global-area" class="toolArea" type="number" min="0" step="1" placeholder="VD: 1500" style="border-color: #fcd34d;" />
+                                    <button id="global-calc-btn" class="toolCalc" type="button" style="background-color: #f59e0b;">Tra cứu toàn bộ</button>
+                                    <button id="global-reset-btn" class="toolReset" type="button">Làm mới</button>
+                                </div>
+                                <div id="global-error" style="display:none; margin-top: 15px; color: #ef4444; font-weight: bold;"></div>
                             </div>
                         </div>
 
