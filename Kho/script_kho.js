@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const resMuc5 = document.getElementById('res-muc5');
     const ccdcTableWrap = document.getElementById("ccdcTableWrap");
     const reqMsgs = document.querySelectorAll('.require-area-msg');
-
+    const needAreaContents = document.querySelectorAll('.need-area-content');
     // =========================================================
     // 2. CÁC HÀM CẬP NHẬT TỪNG MỤC DỰA TRÊN DIỆN TÍCH
     // =========================================================
@@ -195,7 +195,9 @@ document.addEventListener("DOMContentLoaded", function() {
         tableThietBiResult.style.display = 'none';
         resMuc5.style.display = 'none';
         ccdcTableWrap.style.display = 'none';
+
         reqMsgs.forEach(msg => msg.style.display = 'block');
+        needAreaContents.forEach(el => el.style.display = 'none');
     }
 
     function processGlobalSearch() {
@@ -215,6 +217,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
         // Ẩn các dòng chữ nhắc nhở "Vui lòng nhập diện tích..."
         reqMsgs.forEach(msg => msg.style.display = 'none');
+        needAreaContents.forEach(el => el.style.display = 'block');
 
         // Gọi các hàm xử lý
         updateMuc1(area);
