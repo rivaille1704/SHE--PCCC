@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                  </div>
                                  <ul style="padding-left: 20px; margin: 0; line-height: 1.8; color: #166534; font-weight: 500;">
                                     <li>Bình bột <b>MFZ8 (8kg)</b>: <b>${row.bot}</b> bình</li>
-                                    <li>Bình khí <b>CO2 MT5 (5kg)</b> (Dự trữ tối thiểu 10%): <b>${row.co2}</b> bình</li>
+                                    <li>Bình khí <b>CO2 MT5 (5kg)</b> (Dự trữ tối thiểu 5%): <b>${row.co2}</b> bình</li>
                                  </ul>`;
         }
     }
