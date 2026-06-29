@@ -196,27 +196,20 @@
                                     Căn cứ vào quy mô và mức độ nguy hiểm cháy nổ theo ND105/2025/NĐ-CP (Phụ lục II), Kho là cơ sở có nguy hiểm cháy nổ cần trang bị tối thiểu một số công cụ dụng cụ như ( loại trừ bình PCCC )
                                 </div>
                                 <div class="desc" style="font-weight: bold; margin-top: 15px;">Bảng số lượng trang bị căn cứ theo Phụ lục I - TT 36/2025/TT-BCA:</div>
-                                <div class="table-wrap">
+                                <div class="table-wrap" id="ccdcTableWrap" style="display:none;">
                                     <table class="data-table">
                                         <thead>
-                                            <tr>
-                                                <th>STT</th>
-                                                <th>Danh mục CCDC</th>
-                                                <th>Thông số</th>
-                                                <th>Đơn vị</th>
-                                                <th>TH1 : Có tổng diện tích sàn từ 2.000 m² trở lên (thuộc diện phải thẩm định)</th>
-                                                <th>TH2 : Kho có diện tích sàn từ 200 m2 đến dưới 2.000 m² (Không thuộc diện thẩm định)</th>
-                                            </tr>
+                                            <tr><th>STT</th><th>Danh mục CCDC</th><th>Thông số</th><th>Đơn vị</th><th class="th1-col">TH1 : Có tổng diện tích sàn từ 2.000 m² trở lên (thuộc diện phải thẩm định)</th><th class="th2-col">TH2 : Kho có diện tích sàn từ 200 m² đến dưới 2.000 m² (Không thuộc diện thẩm định)</th></tr>
                                         </thead>
                                         <tbody>
-                                            <tr><td class="center">1</td><td>Hệ thống đèn Exit & Sự cố</td><td>Tự động sáng khi mất điện ( TCVN 13456)</td><td class="center">Bộ</td><td class="center">Theo thiết kế</td><td class="center">Số lượng theo các cửa ra vào/ cửa thoát hiểm của kho</td></tr>
-                                            <tr><td class="center">2</td><td>Tiêu lệnh/ Nội quy PCCC</td><td>Kích thước tiêu chuẩn 32x44 cm hoặc 40x18cm</td><td class="center">Bộ</td><td class="center">Theo thiết kế</td><td class="center">Cần trang bị tối thiểu 1 bộ, tùy thuộc vào diện tích của Kho để trang bị cho phù hợp</td></tr>
-                                            <tr><td class="center">3</td><td>Đèn pin chuyên dụng</td><td>Độ sáng tối thiểu 200 lm, chịu nước tối thiểu IP X5</td><td class="center">Chiếc</td><td class="center">02</td><td class="center">02</td></tr>
-                                            <tr><td class="center">4</td><td>Rìu cứu hỏa</td><td>Chất liệu đầu rìu bằng thép cacbon cao</td><td class="center">Chiếc</td><td class="center">02</td><td class="center">02</td></tr>
-                                            <tr><td class="center">5</td><td>Xà Beng</td><td>Xà beng (một đầu nhọn, một đầu dẹt; dài tối thiểu 100 cm)</td><td class="center">Chiếc</td><td class="center">01</td><td class="center">01</td></tr>
-                                            <tr><td class="center">6</td><td>Búa tạ</td><td>Búa (chất liệu đầu búa bằng thép cacbon cao, nặng tối thiểu 5 kg,)</td><td class="center">Chiếc</td><td class="center">01</td><td class="center">01</td></tr>
-                                            <tr><td class="center">7</td><td>Kìm công lực</td><td>Kìm cộng lực (có tải cắt tối thiểu 60 kg)</td><td class="center">Chiếc</td><td class="center">01</td><td class="center">01</td></tr>
-                                            <tr><td class="center">8</td><td>Mặt nạ</td><td>Mặt nạ lọc độc hoặc mặt nạ phòng độc cách ly</td><td class="center">Bộ</td><td class="center">03</td><td class="center">03</td></tr>
+                                            <tr><td class="center">1</td><td>Hệ thống đèn Exit & Sự cố</td><td>Tự động sáng khi mất điện (TCVN 13456)</td><td class="center">Bộ</td><td class="center th1-col">Theo thiết kế</td><td class="center th2-col">Số lượng theo các cửa ra vào/ cửa thoát hiểm của kho</td></tr>
+                                            <tr><td class="center">2</td><td>Tiêu lệnh/ Nội quy PCCC</td><td>Kích thước tiêu chuẩn 32x44 cm hoặc 40x18cm</td><td class="center">Bộ</td><td class="center th1-col">Theo thiết kế</td><td class="center th2-col">Cần trang bị tối thiểu 1 bộ, tùy thuộc vào diện tích của Kho để trang bị cho phù hợp</td></tr>
+                                            <tr><td class="center">3</td><td>Đèn pin chuyên dụng</td><td>Độ sáng tối thiểu 200 lm, chịu nước tối thiểu IP X5</td><td class="center">Chiếc</td><td class="center th1-col">02</td><td class="center th2-col">02</td></tr>
+                                            <tr><td class="center">4</td><td>Rìu cứu hỏa</td><td>Chất liệu đầu rìu bằng thép cacbon cao</td><td class="center">Chiếc</td><td class="center th1-col">02</td><td class="center th2-col">02</td></tr>
+                                            <tr><td class="center">5</td><td>Xà Beng</td><td>Xà beng (một đầu nhọn, một đầu dẹt; dài tối thiểu 100 cm)</td><td class="center">Chiếc</td><td class="center th1-col">01</td><td class="center th2-col">01</td></tr>
+                                            <tr><td class="center">6</td><td>Búa tạ</td><td>Búa (chất liệu đầu búa bằng thép cacbon cao, nặng tối thiểu 5 kg)</td><td class="center">Chiếc</td><td class="center th1-col">01</td><td class="center th2-col">01</td></tr>
+                                            <tr><td class="center">7</td><td>Kìm công lực</td><td>Kìm cộng lực (có tải cắt tối thiểu 60 kg)</td><td class="center">Chiếc</td><td class="center th1-col">01</td><td class="center th2-col">01</td></tr>
+                                            <tr><td class="center">8</td><td>Mặt nạ</td><td>Mặt nạ lọc độc hoặc mặt nạ phòng độc cách ly</td><td class="center">Bộ</td><td class="center th1-col">03</td><td class="center th2-col">03</td></tr>
                                         </tbody>
                                     </table>
                                 </div>

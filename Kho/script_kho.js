@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // DOM Mục V
     const resMuc5 = document.getElementById('res-muc5');
+    const ccdcTableWrap = document.getElementById("ccdcTableWrap");
     const reqMsgs = document.querySelectorAll('.require-area-msg');
 
     // =========================================================
@@ -167,7 +168,21 @@ document.addEventListener("DOMContentLoaded", function() {
                                  </ul>`;
         }
     }
+    function updateCCDC(area){
 
+        ccdcTableWrap.style.display = "block";
+
+        const showTH1 = area >= 2000;
+
+        document.querySelectorAll(".th1-col").forEach(cell=>{
+            cell.style.display = showTH1 ? "" : "none";
+        });
+
+        document.querySelectorAll(".th2-col").forEach(cell=>{
+            cell.style.display = showTH1 ? "none" : "";
+        });
+
+    }
     // =========================================================
     // 3. ĐIỀU PHỐI (ORCHESTRATOR)
     // =========================================================
@@ -179,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function() {
         hosoNote.style.display = 'none';
         tableThietBiResult.style.display = 'none';
         resMuc5.style.display = 'none';
-        
+        ccdcTableWrap.style.display = 'none';
         reqMsgs.forEach(msg => msg.style.display = 'block');
     }
 
@@ -206,6 +221,7 @@ document.addEventListener("DOMContentLoaded", function() {
         updateMuc3(area);
         updateMuc4(area);
         updateMuc5(area);
+        updateCCDC(area);
     }
 
     if (globalCalcBtn) {
